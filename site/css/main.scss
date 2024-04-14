@@ -1,0 +1,156 @@
+//----------CSS RESET----------//
+*, *::before, *::after{
+    box-sizing: border-box; /* Set the sizing of an element to include it's border */
+    user-select: none;
+    font-weight: unset;
+}
+
+*{
+    margin: 0; /* Set the default margin to 0 */
+    padding: 0; /* Set the default padding to 0 */
+}
+
+ul[role='list'], ol[role='list']{
+    list-style: none; /* Turn off numbered and unordered list decoration */
+}
+
+html:focus-within{
+    scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
+}
+
+a:not([class]){
+    text-decoration-skip-ink: auto; /* Makes link undelines look better */
+}
+a{
+    all: unset;
+    cursor: pointer;
+}
+
+img, picture, svg, video, canvas{
+    max-width: 100%; /* Makes it responsive */
+    height: auto; /* Makes it responsive */
+    vertical-align: middle; /* Makes text next to inline images look better */
+    font-style: italic; /* If the images don't load it makes the alt decription look better */
+    background-repeat: no-repeat; 
+    /* The background repeat and size are there if you want to load a picture first like a backroung image that is worse quality while the better quality image loads */
+    background-size: cover;
+}
+
+input, button, textarea, select{
+    font: inherit; /* Makes these elements inherit fonts */
+}
+
+body, html{
+    scroll-behavior: smooth; /* Makes normal scrolling smooth */
+    background: var(--bodyBackground);
+    min-height: 100vh;
+    // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
+}
+
+//----------------COLOURS----------------//
+:root{
+    --bodyBackground: #f6f6f6;
+    --socialHighlight: #ebebeb;
+
+
+    --title: #000;
+    --lightDarkBtns: #131313;
+    --bodyText: #131313;
+    --highlightedText: #000;
+
+
+}
+.darkmode{
+    --bodyBackground: #100f0f;
+    --socialHighlight: #313131;
+    --actionsMenu: #100f0f;
+
+
+    --title: #f6f6f6;
+    --lightDarkBtns: #ababab;
+    --bodyText: #ababab;
+    --highlightedText: #f6f6f6;
+
+
+}
+.page-content{
+    height: 100%;
+    width: 100%;
+}
+//-----------HEADER----------//
+header{
+    height: 50px;
+    padding-inline: 32px;
+    // backdrop-filter: blur(24px) saturate(100%);
+    // background: var(--header);
+    // position: sticky;
+    // top: 0;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.title{
+    height: fit-content;
+}
+h1{
+    font-size: 1.5em;
+    font-family: interMedium;
+    color: var(--title);
+    letter-spacing: -.03em;
+}
+.light-dark-mode-btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 30px;
+}
+button.light-dark{
+    border: none;
+    background: none;
+    color: var(--lightDarkBtns);
+    font-size: 24px;
+    cursor: pointer;
+}
+//-----------MAIN----------//
+main{
+    padding: 16px;
+    min-height: calc(100vh - 50px);
+}
+.main-content{
+
+}
+//-----------FOOTER----------//
+footer{
+    height: 50px;
+}
+.footer-content{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.site-info{
+    height: fit-content;
+}
+p.si-text{
+    font-size: 1em;
+    font-family: geistMonoRegular;
+    color: var(--bodyText);
+}
+//-----------MEDIA QUERIES----------//
+@media only screen and (min-width: 0px) and (max-width: 800px) {
+    body, html{
+        scroll-behavior: smooth; /* Makes normal scrolling smooth */
+        background: var(--bodyBackground);
+        min-height: 100svh;
+        // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width: 3000px) {
+    
+}

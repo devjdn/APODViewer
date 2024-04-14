@@ -1,0 +1,72 @@
+@font-face {
+    font-family: geistMonoThin;
+    src: url("../fonts/GeistMono-Thin.woff2");
+}
+@font-face {
+    font-family: geistMonoUltraLight;
+    src: url("../fonts/GeistMono-UltraLight.woff2");
+}
+@font-face {
+    font-family: geistMonoLight;
+    src: url("../fonts/GeistMono-Light.woff2");
+}
+@font-face {
+    font-family: geistMonoRegular;
+    src: url("../fonts/GeistMono-Regular.woff2");
+}
+@font-face {
+    font-family: geistMonoMedium;
+    src: url("../fonts/GeistMono-Medium.woff2");
+}
+@font-face {
+    font-family: geistMonoSemiBold;
+    src: url("../fonts/GeistMono-SemiBold.woff2");
+}
+@font-face {
+    font-family: geistMonoBold;
+    src: url("../fonts/GeistMono-Bold.woff2");
+}
+@font-face {
+    font-family: geistMonoBlack;
+    src: url("../fonts/GeistMono-Black.woff2");
+}
+@font-face {
+    font-family: geistMonoUltraBlack;
+    src: url("../fonts/GeistMono-UltraBlack.woff2");
+}
+@font-face {
+    font-family: interThin;
+    src: url("../fonts/Inter-Thin.ttf");
+}
+@font-face {
+    font-family: interExtraLight;
+    src: url("../fonts/Inter-ExtraLight.ttf");
+}
+@font-face {
+    font-family: interLight;
+    src: url("../fonts/Inter-Light.ttf");
+}
+@font-face {
+    font-family: interRegular;
+    src: url("../fonts/Inter-Regular.ttf");
+}
+@font-face {
+    font-family: interMedium;
+    src: url("../fonts/Inter-Medium.ttf");
+}
+@font-face {
+    font-family: interSemiBold;
+    src: url("../fonts/Inter-SemiBold.ttf");
+}
+@font-face {
+    font-family: interBold;
+    src: url("../fonts/Inter-Bold.ttf");
+}
+@font-face {
+    font-family: interExtraBold;
+    src: url("../fonts/Inter-ExtraBold.ttf");
+}
+@font-face {
+    font-family: interBlack;
+    src: url("../fonts/Inter-Black.ttf");
+}

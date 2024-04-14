@@ -1,0 +1,150 @@
+*, *::before, *::after {
+  box-sizing: border-box; /* Set the sizing of an element to include it's border */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-weight: unset;
+}
+
+* {
+  margin: 0; /* Set the default margin to 0 */
+  padding: 0; /* Set the default padding to 0 */
+}
+
+ul[role=list], ol[role=list] {
+  list-style: none; /* Turn off numbered and unordered list decoration */
+}
+
+html:focus-within {
+  scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; /* Makes link undelines look better */
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%; /* Makes it responsive */
+  height: auto; /* Makes it responsive */
+  vertical-align: middle; /* Makes text next to inline images look better */
+  font-style: italic; /* If the images don't load it makes the alt decription look better */
+  background-repeat: no-repeat;
+  /* The background repeat and size are there if you want to load a picture first like a backroung image that is worse quality while the better quality image loads */
+  background-size: cover;
+}
+
+input, button, textarea, select {
+  font: inherit; /* Makes these elements inherit fonts */
+}
+
+body, html {
+  scroll-behavior: smooth; /* Makes normal scrolling smooth */
+  background: var(--bodyBackground);
+  min-height: 100vh;
+}
+
+:root {
+  --bodyBackground: #f6f6f6;
+  --socialHighlight: #ebebeb;
+  --title: #000;
+  --lightDarkBtns: #131313;
+  --bodyText: #131313;
+  --highlightedText: #000;
+}
+
+.darkmode {
+  --bodyBackground: #100f0f;
+  --socialHighlight: #313131;
+  --actionsMenu: #100f0f;
+  --title: #f6f6f6;
+  --lightDarkBtns: #ababab;
+  --bodyText: #ababab;
+  --highlightedText: #f6f6f6;
+}
+
+.page-content {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  height: 50px;
+  padding-inline: 32px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-family: interMedium;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+.light-dark-mode-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 30px;
+}
+
+button.light-dark {
+  border: none;
+  background: none;
+  color: var(--lightDarkBtns);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+main {
+  padding: 16px;
+  min-height: calc(100vh - 50px);
+}
+
+footer {
+  height: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.site-info {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+p.si-text {
+  font-size: 1em;
+  font-family: geistMonoRegular;
+  color: var(--bodyText);
+}
+
+@media only screen and (min-width: 0px) and (max-width: 800px) {
+  body, html {
+    scroll-behavior: smooth; /* Makes normal scrolling smooth */
+    background: var(--bodyBackground);
+    min-height: 100svh;
+  }
+}/*# sourceMappingURL=main.css.map */
