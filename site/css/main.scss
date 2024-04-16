@@ -51,6 +51,7 @@ body, html{
 :root{
     --bodyBackground: #f6f6f6;
     --fetch: #000000;
+    --footer: #ffffff;
 
     --title: #000;
     --lightDarkBtns: #131313;
@@ -58,10 +59,13 @@ body, html{
     --highlightedText: #000;
     --fetchText: #ffffff;
 
+
+    --dataActiveOutline: 1px solid #e4e4e4;
 }
 .darkmode{
     --bodyBackground: #100f0f;
     --fetch: #1a1a1a;
+    --footer: #070707;
 
 
     --title: #f6f6f6;
@@ -71,6 +75,8 @@ body, html{
     --fetchText: #e0e0e0;
 
 
+
+    --dataActiveOutline: 1px solid #646464;
 }
 .page-content{
     height: 100%;
@@ -78,8 +84,8 @@ body, html{
 }
 //-----------HEADER----------//
 header{
-    height: 40vh;
-    padding-inline: 16px;
+    height: fit-content;
+    padding: 10vh 16px;
     background: linear-gradient(to bottom,
     rgba(245, 69, 66, 0),
     var(--bodyBackground)), url('../bg/starrysky.jpg');
@@ -94,6 +100,7 @@ header{
 }
 .page-link-container{
     display: flex;
+    justify-content: center;
     gap: 8px;
 }
 .page-links{
@@ -102,9 +109,19 @@ header{
     background: var(--fetch);
     color: var(--fetchText);
     font-family: interSemiBold;
+    width: fit-content;
+}
+.header-name{
+    text-align: center;
 }
 .title{
     height: fit-content;
+}
+span{
+    font-size: 3.5em;
+    font-family: interSemiBold;
+    color: var(--title);
+    letter-spacing: -.03em;
 }
 h1{
     font-size: 3.5em;
@@ -142,6 +159,7 @@ section.content-section{
     flex-direction: column;
     gap: 16px;
     width: 66%;
+    padding: 16px;
 }
 .intro{
     display: flex;
@@ -167,6 +185,17 @@ p.intro-description{
 .apod-controls{
 
 }
+input.data-range{
+    background: var(--fetch);
+    border-radius: 4px;
+    font-family: interMedium;
+    padding: 8px;
+    color: var(--fetchText);
+    border: none;
+}
+input.data-range:focus{
+    outline: var(--dataActiveOutline);
+}
 button.fetch-data{
     background: var(--fetch);
     border-radius: 4px;
@@ -174,6 +203,7 @@ button.fetch-data{
     padding: 8px;
     color: var(--fetchText);
     border: none;
+    cursor: pointer;
 }
 .apod-content{
     display: flex;
@@ -197,13 +227,15 @@ p.apod-explanation{
 }
 //-----------FOOTER----------//
 footer{
-    height: 50px;
+    height: fit-content;
+    background: var(--footer);
 }
 .footer-content{
     display: flex;
     justify-content: center;
     height: 100%;
     width: 100%;
+    padding: 5vh;
 }
 .site-info{
     height: fit-content;
@@ -220,6 +252,23 @@ p.si-text{
         background: var(--bodyBackground);
         min-height: 100svh;
         // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
+    }
+    .header-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 32px;
+    }
+    h1{
+        font-size: 2.5em;
+        font-family: interBold;
+        color: var(--title);
+        letter-spacing: -.03em;
+    }
+    .page-link-container{
+        flex-wrap: wrap;
     }
     section.content-section{
         display: flex;

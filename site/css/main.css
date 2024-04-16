@@ -52,21 +52,25 @@ body, html {
 :root {
   --bodyBackground: #f6f6f6;
   --fetch: #000000;
+  --footer: #ffffff;
   --title: #000;
   --lightDarkBtns: #131313;
   --bodyText: #131313;
   --highlightedText: #000;
   --fetchText: #ffffff;
+  --dataActiveOutline: 1px solid #e4e4e4;
 }
 
 .darkmode {
   --bodyBackground: #100f0f;
   --fetch: #1a1a1a;
+  --footer: #070707;
   --title: #f6f6f6;
   --lightDarkBtns: #ababab;
   --bodyText: #ababab;
   --highlightedText: #f6f6f6;
   --fetchText: #e0e0e0;
+  --dataActiveOutline: 1px solid #646464;
 }
 
 .page-content {
@@ -75,8 +79,9 @@ body, html {
 }
 
 header {
-  height: 40vh;
-  padding-inline: 16px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10vh 16px;
   background: linear-gradient(to bottom, rgba(245, 69, 66, 0), var(--bodyBackground)), url("../bg/starrysky.jpg");
 }
 
@@ -91,6 +96,7 @@ header {
 
 .page-link-container {
   display: flex;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -100,11 +106,24 @@ header {
   background: var(--fetch);
   color: var(--fetchText);
   font-family: interSemiBold;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.header-name {
+  text-align: center;
 }
 
 .title {
   height: -moz-fit-content;
   height: fit-content;
+}
+
+span {
+  font-size: 3.5em;
+  font-family: interSemiBold;
+  color: var(--title);
+  letter-spacing: -0.03em;
 }
 
 h1 {
@@ -147,6 +166,7 @@ section.content-section {
   flex-direction: column;
   gap: 16px;
   width: 66%;
+  padding: 16px;
 }
 
 .intro {
@@ -174,6 +194,19 @@ p.intro-description {
   color: var(--bodyText);
 }
 
+input.data-range {
+  background: var(--fetch);
+  border-radius: 4px;
+  font-family: interMedium;
+  padding: 8px;
+  color: var(--fetchText);
+  border: none;
+}
+
+input.data-range:focus {
+  outline: var(--dataActiveOutline);
+}
+
 button.fetch-data {
   background: var(--fetch);
   border-radius: 4px;
@@ -181,6 +214,7 @@ button.fetch-data {
   padding: 8px;
   color: var(--fetchText);
   border: none;
+  cursor: pointer;
 }
 
 .apod-content {
@@ -209,7 +243,9 @@ p.apod-explanation {
 }
 
 footer {
-  height: 50px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: var(--footer);
 }
 
 .footer-content {
@@ -217,6 +253,7 @@ footer {
   justify-content: center;
   height: 100%;
   width: 100%;
+  padding: 5vh;
 }
 
 .site-info {
@@ -235,6 +272,23 @@ p.si-text {
     scroll-behavior: smooth; /* Makes normal scrolling smooth */
     background: var(--bodyBackground);
     min-height: 100svh;
+  }
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 32px;
+  }
+  h1 {
+    font-size: 2.5em;
+    font-family: interBold;
+    color: var(--title);
+    letter-spacing: -0.03em;
+  }
+  .page-link-container {
+    flex-wrap: wrap;
   }
   section.content-section {
     display: flex;

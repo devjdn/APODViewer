@@ -28,17 +28,24 @@
         <header>
             <div class="header-content">
                 <div class="header-name">
-                    <h1>NASA API Project</h1>
+                    <h1>Oortcloud</h1>
+                    <h1>A NASA API Project</h1>
                 </div>
                 <div class="page-link-container">
                     <div class="page-links">
-                        <a href="#apod"><div class="link"><p class="link-text">APOD</p></div></a>
+                        <a href="#APOD"><div class="link"><p class="link-text">APOD</p></div></a>
+                    </div>
+                    <div class="page-links">
+                        <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
                     </div>
                     <div class="page-links">
                         <a href="#apod"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
                     </div>
                     <div class="page-links">
                         <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
+                    </div>
+                    <div class="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">DONKI</p></div></a>
                     </div>
                 </div>
                 <!-- <div class="light-dark-mode-btns">
@@ -50,15 +57,15 @@
         <main>
             <div class="main-content">
                 
-                <section class="apod content-section" id="apod">
+                <section class="apod content-section" id="APOD">
                     <div class="intro">
                         <div class="intro-text">
                             <h2>Astronomy Picture of the Day</h2>
                             <p class="intro-description">View NASA's choice for Astronomy Picture of the Day. Alternatively, you can have us provide you with a random assortment of images with explanantions attached.</p>
                         </div>
                         <div class="apod-controls">
+                            <input class="data-range" type="date" name="" value="">
                             <button class="fetch-data">Fetch APOD</button>
-                            <input type="text" name="" value="">
                         </div>
                     </div>
                     <div class="apod-content">
@@ -90,11 +97,24 @@
                         }
                     </script>
                 </section>
+                <section class="EPIC content-section" id="EPIC">
+                    <div class="intro">
+                        <div class="intro-text">
+                            <h2>Earth Polychromatic Imaging Camera</h2>
+                            <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point</p>
+                        </div>
+                        <div class="apod-controls">
+                            <input class="data-range" type="date" name="" value="">
+                            <button class="fetch-data">Fetch EPIC image</button>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
         <footer>
             <div class="footer-content">
                 <div class="site-info">
+                    <p class="si-text">INFO VIA <a href="https://api.nasa.gov" target="_blank" style="text-decoration: underline;">API.NASA.GOV</a></p>
                     <p class="si-text">JAYDEN PRIESTLEY 2024</p>
                 </div>
             </div>
