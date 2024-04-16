@@ -50,26 +50,25 @@ body, html{
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #f6f6f6;
-    --socialHighlight: #ebebeb;
-
+    --fetch: #000000;
 
     --title: #000;
     --lightDarkBtns: #131313;
     --bodyText: #131313;
     --highlightedText: #000;
-
+    --fetchText: #ffffff;
 
 }
 .darkmode{
     --bodyBackground: #100f0f;
-    --socialHighlight: #313131;
-    --actionsMenu: #100f0f;
+    --fetch: #1a1a1a;
 
 
     --title: #f6f6f6;
     --lightDarkBtns: #ababab;
     --bodyText: #ababab;
     --highlightedText: #f6f6f6;
+    --fetchText: #e0e0e0;
 
 
 }
@@ -79,26 +78,37 @@ body, html{
 }
 //-----------HEADER----------//
 header{
-    height: 50px;
-    padding-inline: 32px;
-    // backdrop-filter: blur(24px) saturate(100%);
-    // background: var(--header);
-    // position: sticky;
-    // top: 0;
+    height: 40vh;
+    padding-inline: 16px;
+    background: linear-gradient(to bottom,
+    rgba(245, 69, 66, 0),
+    var(--bodyBackground)), url('../bg/starrysky.jpg');
 }
 .header-content{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
+    gap: 32px;
+}
+.page-link-container{
+    display: flex;
+    gap: 8px;
+}
+.page-links{
+    border-radius: 4px;
+    padding: 8px 16px;
+    background: var(--fetch);
+    color: var(--fetchText);
+    font-family: interSemiBold;
 }
 .title{
     height: fit-content;
 }
 h1{
-    font-size: 1.5em;
-    font-family: interMedium;
+    font-size: 3.5em;
+    font-family: interBold;
     color: var(--title);
     letter-spacing: -.03em;
 }
@@ -122,7 +132,68 @@ main{
     min-height: calc(100vh - 50px);
 }
 .main-content{
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+}
+section.content-section{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 66%;
+}
+.intro{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.intro-text{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 50%;
+}
+h2{
+    font-size: 1.2em;
+    font-family: interSemiBold;
+    color: var(--title);
+}
+p.intro-description{
+    font-size: .9em;
+    font-family: interRegular;
+    color: var(--bodyText);
+}
+.apod-controls{
 
+}
+button.fetch-data{
+    background: var(--fetch);
+    border-radius: 4px;
+    font-family: interMedium;
+    padding: 8px;
+    color: var(--fetchText);
+    border: none;
+}
+.apod-content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.apod-img-container{
+    border-radius: 10px;
+}
+.apod-img{
+    border-radius: inherit;
+    width: 100%;
+}
+.apod-explan-container{
+    width: 100%;
+}
+p.apod-explanation{
+    font-size: .9em;
+    font-family: interRegular;
+    color: var(--bodyText);
 }
 //-----------FOOTER----------//
 footer{
@@ -149,6 +220,15 @@ p.si-text{
         background: var(--bodyBackground);
         min-height: 100svh;
         // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
+    }
+    section.content-section{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+    .intro-text{
+        width: 100%;
     }
 }
 @media only screen and (min-width: 1400px) and (max-width: 3000px) {

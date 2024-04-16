@@ -51,21 +51,22 @@ body, html {
 
 :root {
   --bodyBackground: #f6f6f6;
-  --socialHighlight: #ebebeb;
+  --fetch: #000000;
   --title: #000;
   --lightDarkBtns: #131313;
   --bodyText: #131313;
   --highlightedText: #000;
+  --fetchText: #ffffff;
 }
 
 .darkmode {
   --bodyBackground: #100f0f;
-  --socialHighlight: #313131;
-  --actionsMenu: #100f0f;
+  --fetch: #1a1a1a;
   --title: #f6f6f6;
   --lightDarkBtns: #ababab;
   --bodyText: #ababab;
   --highlightedText: #f6f6f6;
+  --fetchText: #e0e0e0;
 }
 
 .page-content {
@@ -74,16 +75,31 @@ body, html {
 }
 
 header {
-  height: 50px;
-  padding-inline: 32px;
+  height: 40vh;
+  padding-inline: 16px;
+  background: linear-gradient(to bottom, rgba(245, 69, 66, 0), var(--bodyBackground)), url("../bg/starrysky.jpg");
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
+  gap: 32px;
+}
+
+.page-link-container {
+  display: flex;
+  gap: 8px;
+}
+
+.page-links {
+  border-radius: 4px;
+  padding: 8px 16px;
+  background: var(--fetch);
+  color: var(--fetchText);
+  font-family: interSemiBold;
 }
 
 .title {
@@ -92,8 +108,8 @@ header {
 }
 
 h1 {
-  font-size: 1.5em;
-  font-family: interMedium;
+  font-size: 3.5em;
+  font-family: interBold;
   color: var(--title);
   letter-spacing: -0.03em;
 }
@@ -117,6 +133,79 @@ button.light-dark {
 main {
   padding: 16px;
   min-height: calc(100vh - 50px);
+}
+
+.main-content {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 66%;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 50%;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-family: interSemiBold;
+  color: var(--title);
+}
+
+p.intro-description {
+  font-size: 0.9em;
+  font-family: interRegular;
+  color: var(--bodyText);
+}
+
+button.fetch-data {
+  background: var(--fetch);
+  border-radius: 4px;
+  font-family: interMedium;
+  padding: 8px;
+  color: var(--fetchText);
+  border: none;
+}
+
+.apod-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.apod-img-container {
+  border-radius: 10px;
+}
+
+.apod-img {
+  border-radius: inherit;
+  width: 100%;
+}
+
+.apod-explan-container {
+  width: 100%;
+}
+
+p.apod-explanation {
+  font-size: 0.9em;
+  font-family: interRegular;
+  color: var(--bodyText);
 }
 
 footer {
@@ -146,5 +235,14 @@ p.si-text {
     scroll-behavior: smooth; /* Makes normal scrolling smooth */
     background: var(--bodyBackground);
     min-height: 100svh;
+  }
+  section.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+  .intro-text {
+    width: 100%;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
 </head>
 <html>
-<body>
+<body class="darkmode">
 
     <div class="page-content">
         <header>
@@ -30,38 +30,66 @@
                 <div class="header-name">
                     <h1>NASA API Project</h1>
                 </div>
-                <div class="light-dark-mode-btns">
+                <div class="page-link-container">
+                    <div class="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">APOD</p></div></a>
+                    </div>
+                    <div class="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
+                    </div>
+                    <div class="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
+                    </div>
+                </div>
+                <!-- <div class="light-dark-mode-btns">
                     <button class="light light-dark" onclick="disableDarkMode()"><i class='bx bxs-sun'></i></button>
                     <button class="dark light-dark" onclick="enableDarkMode()"><i class='bx bxs-moon'></i></button>
-                </div>
+                </div> -->
             </div>
         </header>
         <main>
             <div class="main-content">
-                <button class="fetch-data">fetch nasa</button>
-                <input type="text" name="" value="">
-                <img src="" alt="">
-                <h3>Explanation</h3>
-
-                <script>
-                    document.querySelector('.fetch-data').addEventListener('click', getFetch)
-
-                    function getFetch(){
-                        const choice = document.querySelector('input').value.toLowerCase()
-                        const url = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'
-
-                        fetch(url)
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                            document.querySelector('img').src = data.hdurl
-                            document.querySelector('h3').innerText = data.explanation
-                        })
-                        .catch(err => {
-                            console.log('error ${err}')
-                        });
-                    }
-                </script>
+                
+                <section class="apod content-section" id="apod">
+                    <div class="intro">
+                        <div class="intro-text">
+                            <h2>Astronomy Picture of the Day</h2>
+                            <p class="intro-description">View NASA's choice for Astronomy Picture of the Day. Alternatively, you can have us provide you with a random assortment of images with explanantions attached.</p>
+                        </div>
+                        <div class="apod-controls">
+                            <button class="fetch-data">Fetch APOD</button>
+                            <input type="text" name="" value="">
+                        </div>
+                    </div>
+                    <div class="apod-content">
+                        <div class="apod-img-container">
+                            <img class="apod-img" src="" alt="">
+                        </div>
+                        <div class="apod-explan-container">
+                            <p class="apod-explanation"></p>
+                        </div>
+                    </div>
+    
+                    <script>
+                        document.querySelector('.fetch-data').addEventListener('click', getFetch)
+    
+                        function getFetch(){
+                            const choice = document.querySelector('input').value.toLowerCase()
+                            const url = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'
+    
+                            fetch(url)
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                document.querySelector('.apod-img').src = data.hdurl
+                                document.querySelector('.apod-explanation').innerText = data.explanation
+                            })
+                            .catch(err => {
+                                console.log('error ${err}')
+                            });
+                        }
+                    </script>
+                </section>
             </div>
         </main>
         <footer>
