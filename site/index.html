@@ -28,7 +28,7 @@
         <header>
             <div class="header-content">
                 <div class="header-name">
-                    <h1>jaydenpriestley</h1>
+                    <h1>NASA API Project</h1>
                 </div>
                 <div class="light-dark-mode-btns">
                     <button class="light light-dark" onclick="disableDarkMode()"><i class='bx bxs-sun'></i></button>
@@ -38,6 +38,30 @@
         </header>
         <main>
             <div class="main-content">
+                <button class="fetch-data">fetch nasa</button>
+                <input type="text" name="" value="">
+                <img src="" alt="">
+                <h3>Explanation</h3>
+
+                <script>
+                    document.querySelector('.fetch-data').addEventListener('click', getFetch)
+
+                    function getFetch(){
+                        const choice = document.querySelector('input').value.toLowerCase()
+                        const url = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'
+
+                        fetch(url)
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            document.querySelector('img').src = data.hdurl
+                            document.querySelector('h3').innerText = data.explanation
+                        })
+                        .catch(err => {
+                            console.log('error ${err}')
+                        });
+                    }
+                </script>
             </div>
         </main>
         <footer>
