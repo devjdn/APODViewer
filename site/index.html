@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jaydenpriestley.dev</title>
+    <title>Oortcloud</title>
     
     <!--CSS FILES-->
     <link rel="stylesheet" type="text/css" href="css/main.css" />
@@ -29,7 +29,7 @@
             <div class="header-content">
                 <div class="header-name">
                     <h1>Oortcloud</h1>
-                    <h1>A NASA API Project</h1>
+                    <p class="title-description">A Space API Project</p>
                     <p class="title-description">API's provided by NASA, ESA, and Open Notify.</p>
                 </div>
                 <div class="page-link-container">
@@ -64,52 +64,78 @@
                             <h2>Astronomy Picture of the Day</h2>
                             <p class="intro-description">View NASA's choice for Astronomy Picture of the Day. Alternatively, you can have us provide you with a random assortment of images with explanantions attached.</p>
                         </div>
-                        <div class="apod-controls">
-                            <input type="date" name="" value="">
-                            <button class="fetch-apod fetch-data">Fetch APOD</button>
+                        <div class="fetch-container">
+                            <p class="control-label">Select a date between 16 June 1995 to the present day, or click fetch straight away to view today's.</p>
+                            <div class="apod-controls">
+                                <input type="date" name="" value="">
+                                <button class="fetch-apod fetch-data">Fetch APOD</button>
+                            </div>
                         </div>
                     </div>
                     <div class="apod-content">
                         <div class="apod-img-container">
+                            <div class="spinner">
+                                <div class="spinner-items">
+                                    <div class="spinner-animation">
+                                        <div class="spinner-icon">
+                                            <i class='bx bx-loader'></i>
+                                        </div>
+                                        <p class="spinner-text">Loading API data...</p>
+                                    </div>
+                                </div>
+                            </div>
                             <img class="apod-img" src="" alt="">
                             <iframe src="" frameborder="0"></iframe>
                         </div>
                         <div class="apod-explan-container">
+                            <!-- <p class="explanation-title">APOD Explanation</p> -->
                             <p class="apod-explanation"></p>
                         </div>
                     </div>
     
                     <script>
-                        document.querySelector('.fetch-apod').addEventListener('click', getFetch)
-    
-    function getFetch(){
-        const choice = document.querySelector('input').value
-        console.log(choice)
-
-        const url = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`
-
-        fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if (data.media_type === 'image') {
-                document.querySelector('.apod-img').src = data.hdurl
-            } else if (data.media_type === 'video') {
-                document.querySelector('iframe').src = data.url
-            }
-            document.querySelector('.apod-explanation').innerText = data.explanation
-        })
-        .catch(err => {
-            console.log('error ${err}')
-        });
-    }
+                        document.querySelector('.fetch-apod').addEventListener('click', getFetch);
+                
+                        function getFetch(){
+                            const choice = document.querySelector('input').value;
+                            console.log(choice);
+                
+                            const spinner = document.querySelector('.spinner');
+                            spinner.style.display = 'block'; // Show loading spinner
+                
+                            const url = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
+                
+                            fetch(url)
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                if (data.media_type === 'image') {
+                                    document.querySelector('.apod-img').src = data.hdurl;
+                                    document.querySelector('iframe').style.display = 'none';
+                                    document.querySelector('.apod-img').style.display = 'block';
+                                } else if (data.media_type === 'video') {
+                                    document.querySelector('iframe').src = data.url;
+                                    document.querySelector('.apod-img').style.display = 'none';
+                                    document.querySelector('iframe').style.display = 'block';
+                                }
+                                document.querySelector('.apod-explanation').innerText = data.explanation;
+                
+                                // Hide loading spinner after receiving response
+                                spinner.style.display = 'none';
+                            })
+                            .catch(err => {
+                                console.log(`error ${err}`);
+                                // Hide loading spinner in case of error
+                                spinner.style.display = 'none';
+                            });
+                        }
                     </script>
                 </section>
                 <section class="EPIC content-section" id="EPIC">
                     <div class="intro">
                         <div class="intro-text">
                             <h2>Earth Polychromatic Imaging Camera</h2>
-                            <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point</p>
+                            <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point.</p>
                         </div>
                         <div class="apod-controls">
                             <!-- <input class="data-range" type="date" name="" value=""> -->

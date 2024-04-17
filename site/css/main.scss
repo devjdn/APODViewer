@@ -63,7 +63,7 @@ body, html{
     --dataActiveOutline: 1px solid #e4e4e4;
 }
 .darkmode{
-    --bodyBackground: #0c0c0c;
+    --bodyBackground: #050505;
     --fetch: #1a1a1a;
     --footer: #070707;
 
@@ -115,12 +115,6 @@ header{
 .title{
     height: fit-content;
 }
-span{
-    font-size: 3.5em;
-    font-family: interSemiBold;
-    color: var(--title);
-    letter-spacing: -.03em;
-}
 h1{
     font-size: 3.5em;
     font-family: interBold;
@@ -128,8 +122,8 @@ h1{
     letter-spacing: -.03em;
 }
 p.title-description{
-    font-size: 1.25em;
-    font-family: interSemiBold;
+    font-size: 1.5em;
+    font-family: interMedium;
     color: var(--title);
     letter-spacing: -.03em;
 }
@@ -174,10 +168,9 @@ section.content-section{
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 50%;
 }
 h2{
-    font-size: 1.2em;
+    font-size: 1.75em;
     font-family: interSemiBold;
     color: var(--title);
 }
@@ -186,8 +179,20 @@ p.intro-description{
     font-family: interRegular;
     color: var(--bodyText);
 }
+.fetch-container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+p.control-label{
+    font-size: .9em;
+    font-family: interRegular;
+    color: var(--bodyText);
+}
 .apod-controls{
-
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 input[type="date"]{
     background: var(--fetch);
@@ -196,6 +201,7 @@ input[type="date"]{
     padding: 8px;
     color: var(--fetchText);
     border: none;
+    height: 36px;
 }
 input.data-range:focus{
     outline: var(--dataActiveOutline);
@@ -208,6 +214,7 @@ button.fetch-data{
     color: var(--fetchText);
     border: none;
     cursor: pointer;
+    height: 36px;
 }
 .apod-content{
     display: flex;
@@ -217,12 +224,59 @@ button.fetch-data{
 .apod-img-container{
     border-radius: 10px;
 }
+.spinner {
+    display: none;
+    height: 300px;
+    width: 100%;
+}
+.spinner-items{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.spinner-animation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.spinner-icon i{
+    background: conic-gradient(#b4b4b4, #525252);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2em;
+    animation: spinner 1.5s infinite linear;
+}
+@keyframes spinner{
+    from{
+        transform: rotate(0);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+p.spinner-text{
+    font-size: 1em;
+    color: var(--title);
+    font-family: geistMonoRegular;
+}
 .apod-img{
     border-radius: inherit;
     width: 100%;
 }
+iframe{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: none;
+}
 .apod-explan-container{
     width: 100%;
+}
+p.explanation-title{
+    font-size: 1.2em;
+    font-family: interSemiBold;
+    color: var(--title);
+    margin-bottom: 4px;
 }
 p.apod-explanation{
     font-size: .9em;
@@ -274,13 +328,15 @@ p.si-text{
     .page-link-container{
         flex-wrap: wrap;
     }
+    p.title-description{
+        font-size: 1em;
+        color: var(--title);
+        letter-spacing: -.03em;
+    }
     section.content-section{
         display: flex;
         flex-direction: column;
         gap: 16px;
-        width: 100%;
-    }
-    .intro-text{
         width: 100%;
     }
 }
