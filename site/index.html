@@ -64,8 +64,8 @@
                             <p class="intro-description">View NASA's choice for Astronomy Picture of the Day. Alternatively, you can have us provide you with a random assortment of images with explanantions attached.</p>
                         </div>
                         <div class="apod-controls">
-                            <input class="data-range" type="date" name="" value="">
-                            <button class="fetch-data">Fetch APOD</button>
+                            <input type="date" name="" value="">
+                            <button class="fetch-apod fetch-data">Fetch APOD</button>
                         </div>
                     </div>
                     <div class="apod-content">
@@ -78,23 +78,25 @@
                     </div>
     
                     <script>
-                        document.querySelector('.fetch-data').addEventListener('click', getFetch)
+                        document.querySelector('.fetch-apod').addEventListener('click', getFetch)
     
-                        function getFetch(){
-                            const choice = document.querySelector('input').value.toLowerCase()
-                            const url = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'
-    
-                            fetch(url)
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                                document.querySelector('.apod-img').src = data.hdurl
-                                document.querySelector('.apod-explanation').innerText = data.explanation
-                            })
-                            .catch(err => {
-                                console.log('error ${err}')
-                            });
-                        }
+    function getFetch(){
+        const choice = document.querySelector('input').value
+        console.log(choice)
+
+        const url = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`
+
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            document.querySelector('.apod-img').src = data.hdurl
+            document.querySelector('.apod-explanation').innerText = data.explanation
+        })
+        .catch(err => {
+            console.log('error ${err}')
+        });
+    }
                     </script>
                 </section>
                 <section class="EPIC content-section" id="EPIC">
@@ -104,10 +106,39 @@
                             <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point</p>
                         </div>
                         <div class="apod-controls">
-                            <input class="data-range" type="date" name="" value="">
-                            <button class="fetch-data">Fetch EPIC image</button>
+                            <!-- <input class="data-range" type="date" name="" value=""> -->
+                            <button class="fetch-epic fetch-data">Fetch EPIC image</button>
                         </div>
                     </div>
+                    <div class="epic-content">
+                        <div class="epic-img-container">
+                            <img class="epic-img" src=".png" alt="">
+                        </div>
+                        <div class="epic-explan-container">
+                            <p class="epic-explanation"></p>
+                        </div>
+                    </div>
+                    <script>
+                        document.querySelector('.fetch-epic').addEventListener('click', getFetch)
+    
+    function getFetch(){
+        const choice = document.querySelector('input').value
+        console.log(choice)
+
+        const epicUrl = `https://api.nasa.gov/EPIC/api/natural/images?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV`
+
+        fetch(epicUrl)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            document.querySelector('.epic-img').src = data.image
+            document.querySelector('.epic-explanation').innerText = data.explanation
+        })
+        .catch(err => {
+            console.log('error ${err}')
+        });
+    }
+                    </script>
                 </section>
             </div>
         </main>
