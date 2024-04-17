@@ -30,6 +30,7 @@
                 <div class="header-name">
                     <h1>Oortcloud</h1>
                     <h1>A NASA API Project</h1>
+                    <p class="title-description">API's provided by NASA, ESA, and Open Notify.</p>
                 </div>
                 <div class="page-link-container">
                     <div class="page-links">
@@ -112,7 +113,7 @@
                     </div>
                     <div class="epic-content">
                         <div class="epic-img-container">
-                            <img class="epic-img" src=".png" alt="">
+                            <img class="epic-img" src="" alt="">
                         </div>
                         <div class="epic-explan-container">
                             <p class="epic-explanation"></p>
@@ -125,13 +126,13 @@
         const choice = document.querySelector('input').value
         console.log(choice)
 
-        const epicUrl = `https://api.nasa.gov/EPIC/api/natural/images?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV`
+        const epicUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV`
 
         fetch(epicUrl)
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            document.querySelector('.epic-img').src = data.image
+            document.querySelector('.epic-img').src = data.image_src
             document.querySelector('.epic-explanation').innerText = data.explanation
         })
         .catch(err => {

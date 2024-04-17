@@ -63,7 +63,7 @@ body, html{
     --dataActiveOutline: 1px solid #e4e4e4;
 }
 .darkmode{
-    --bodyBackground: #100f0f;
+    --bodyBackground: #0c0c0c;
     --fetch: #1a1a1a;
     --footer: #070707;
 
@@ -124,6 +124,12 @@ span{
 h1{
     font-size: 3.5em;
     font-family: interBold;
+    color: var(--title);
+    letter-spacing: -.03em;
+}
+p.title-description{
+    font-size: 1.25em;
+    font-family: interSemiBold;
     color: var(--title);
     letter-spacing: -.03em;
 }
