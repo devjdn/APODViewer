@@ -82,7 +82,7 @@ header {
   height: -moz-fit-content;
   height: fit-content;
   padding: 10vh 16px;
-  background: linear-gradient(to bottom, rgba(245, 69, 66, 0), var(--bodyBackground)), url("../bg/starrysky.jpg");
+  background: linear-gradient(to bottom, rgba(66, 245, 156, 0.44), var(--bodyBackground)), url(../bg/starrysky.jpg);
 }
 
 .header-content {
