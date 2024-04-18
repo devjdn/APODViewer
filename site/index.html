@@ -40,7 +40,7 @@
                         <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
                     </div>
                     <div class="page-links">
-                        <a href="#apod"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
+                        <a href="#rover"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
                     </div>
                     <div class="page-links">
                         <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
@@ -57,6 +57,9 @@
         </header>
         <main>
             <div class="main-content">
+                <div class="dashboard-content">
+
+                </div>
                 
                 <section class="apod content-section" id="APOD">
                     <div class="intro">
@@ -66,14 +69,14 @@
                         </div>
                         <div class="fetch-container">
                             <p class="control-label">Select a date between 16 June 1995 to the present day, or click fetch straight away to view today's.</p>
-                            <div class="apod-controls">
+                            <div class="apod-controls controls">
                                 <input type="date" name="" value="">
                                 <button class="fetch-apod fetch-data">Fetch APOD</button>
                             </div>
                         </div>
                     </div>
                     <div class="apod-content">
-                        <div class="apod-img-container">
+                        <div class="img-container">
                             <div class="spinner">
                                 <div class="spinner-items">
                                     <div class="spinner-animation">
@@ -89,7 +92,7 @@
                         </div>
                         <div class="apod-explan-container">
                             <!-- <p class="explanation-title">APOD Explanation</p> -->
-                            <p class="apod-explanation"></p>
+                            <p class="apod-explanation explanation"></p>
                         </div>
                     </div>
     
@@ -137,39 +140,80 @@
                             <h2>Earth Polychromatic Imaging Camera</h2>
                             <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point.</p>
                         </div>
-                        <div class="apod-controls">
+                        <div class="EPIC controls">
                             <!-- <input class="data-range" type="date" name="" value=""> -->
                             <button class="fetch-epic fetch-data">Fetch EPIC image</button>
                         </div>
                     </div>
                     <div class="epic-content">
-                        <div class="epic-img-container">
-                            <img class="epic-img" src="" alt="">
+                        <div class="img-container">
+                            <img class="epic-img" src="" alt="" frameborder="0">
                         </div>
-                        <div class="epic-explan-container">
-                            <p class="epic-explanation"></p>
+                        <div class="epic-explan-container explan-container">
+                            <p class="epic-explanation explanation"></p>
+                        </div>
+                    </div>
+                </section>
+                <section class="rover content-section" id="rover">
+                    <div class="intro">
+                        <div class="intro-text">
+                            <h2>Mars Rover Photos</h2>
+                            <p class="intro-description">View images from NASA's 3 Mars rovers: Curiosity, Opportunity, and Spirit. Enter your own queries and be provided by photos that match your query, for example, you can choose a specific camera or date on which a photo was taken.</p>
+                        </div>
+                        <div class="rover controls">
+                           
+                        </div>
+                    </div>
+                    <div class="rover-content">
+                        <div class="img-container">
+                            <div class="spinner">
+                                <div class="spinner-items">
+                                    <div class="spinner-animation">
+                                        <div class="spinner-icon">
+                                            <i class='bx bx-loader'></i>
+                                        </div>
+                                        <p class="spinner-text">Loading API data...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="roverPhoto" src="" frameborder="0">
+                        </div>
+                        <div class="rover-explan-container explan-container">
+                            <ul>
+                                <li class="date-container">
+                                    <p class="date-title">Earth date:</p>
+                                    <p class="rover-earth-date"></p>
+                                </li>
+                                <li class="date-container">
+                                    <p class="date-title">Launch date:</p>
+                                    <p class="rover-launch-date"></p>
+                                </li>
+                                <li class="date-container">
+                                    <p class="date-title">Landing date:</p>
+                                    <p class="rover-landing-date"></p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <script>
-                        document.querySelector('.fetch-epic').addEventListener('click', getFetch)
-    
-    function getFetch(){
-        const choice = document.querySelector('input').value
-        console.log(choice)
-
-        const epicUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV`
-
-        fetch(epicUrl)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            document.querySelector('.epic-img').src = data.image_src
-            document.querySelector('.epic-explanation').innerText = data.explanation
-        })
-        .catch(err => {
-            console.log('error ${err}')
-        });
-    }
+                        const apiKey = '8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'; 
+                        const rover = 'curiosity'; 
+                        const sol = '2000'; // Change to the sol (Martian day) you want to fetch the photo from 
+                        
+                        
+                        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${apiKey}`) 
+                        .then(response => response.json()) 
+                        .then(data => { // Assuming there is at least one photo 
+                            const photoUrl = data.photos[0].img_src; 
+                            const roverPhoto = document.getElementById('roverPhoto');
+                            roverPhoto.src = photoUrl;
+                            document.querySelector('.rover-earth-date').innerText = data.photos[0].earth_date;
+                            document.querySelector('.rover-launch-date').innerText = data.photos[0].rover.launch_date;
+                            document.querySelector('.rover-landing-date').innerText = data.photos[0].rover.landing_date;
+                            console.log(photoUrl); // Now you can use the photoUrl to display the image or do whatever you want with it 
+                        }) 
+                        
+                        .catch(error => console.error('Error fetching data:', error));
                     </script>
                 </section>
             </div>

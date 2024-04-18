@@ -189,7 +189,7 @@ p.control-label{
     font-family: interRegular;
     color: var(--bodyText);
 }
-.apod-controls{
+.controls{
     display: flex;
     align-items: center;
     gap: 4px;
@@ -221,7 +221,7 @@ button.fetch-data{
     flex-direction: column;
     gap: 12px;
 }
-.apod-img-container{
+.img-container{
     border-radius: 10px;
 }
 .spinner {
@@ -260,7 +260,7 @@ p.spinner-text{
     color: var(--title);
     font-family: geistMonoRegular;
 }
-.apod-img{
+img{
     border-radius: inherit;
     width: 100%;
 }
@@ -269,7 +269,7 @@ iframe{
     aspect-ratio: 16 / 9;
     display: none;
 }
-.apod-explan-container{
+.explan-container{
     width: 100%;
 }
 p.explanation-title{
@@ -278,7 +278,29 @@ p.explanation-title{
     color: var(--title);
     margin-bottom: 4px;
 }
-p.apod-explanation{
+p.explanation{
+    font-size: .9em;
+    font-family: interRegular;
+    color: var(--bodyText);
+}
+.rover-content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+#roverPhoto{
+    border-radius: inherit;
+}
+.rover-explan-container{
+    display: flex;
+    gap: 6px;
+}
+li.date-container{
+    display: flex;
+    gap: 4px;
+    list-style-type: disc;
+}
+p.date-title, p.rover-earth-date, p.rover-launch-date, p.rover-landing-date{
     font-size: .9em;
     font-family: interRegular;
     color: var(--bodyText);
