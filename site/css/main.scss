@@ -49,21 +49,8 @@ body, html{
 
 //----------------COLOURS----------------//
 :root{
-    --bodyBackground: #f6f6f6;
-    --fetch: #000000;
-    --footer: #ffffff;
-
-    --title: #000;
-    --lightDarkBtns: #131313;
-    --bodyText: #131313;
-    --highlightedText: #000;
-    --fetchText: #ffffff;
-
-
-    --dataActiveOutline: 1px solid #e4e4e4;
-}
-.darkmode{
     --bodyBackground: #050505;
+    --header: linear-gradient(to bottom, rgba(245, 66, 66, 0.432), rgba(66, 4, 4, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
     --fetch: #1a1a1a;
     --footer: #070707;
 
@@ -84,9 +71,10 @@ body, html{
 }
 //-----------HEADER----------//
 header{
-    height: fit-content;
-    padding: 10vh 16px;
-    background: linear-gradient(to bottom, rgba(245, 66, 66, 0.432), rgba(66, 4, 4, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
+    height: 300px;
+    background: var(--header);
+    position: sticky;
+    top: 0;
 }
 .header-content{
     display: flex;

@@ -57,15 +57,3 @@ function toggleColorScheme() {
         // Add other styles for dark mode
     }
 }
-
-/* function toggleActionMenu(button) {
-    const toggleBtn = button;
-    const menuId = toggleBtn.getAttribute('data-menu-id');
-    const actionMenu = document.getElementById(menuId);
-   
-    if (actionMenu.style.opacity === '0') {
-        actionMenu.style.opacity = '1';
-    } else {
-        actionMenu.style.opacity = '0';
-    }
-} */
