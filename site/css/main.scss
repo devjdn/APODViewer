@@ -8,6 +8,7 @@
 *{
     margin: 0; /* Set the default margin to 0 */
     padding: 0; /* Set the default padding to 0 */
+    transition: all .0s;
 }
 
 ul[role='list'], ol[role='list']{
@@ -75,6 +76,7 @@ header{
     background: var(--header);
     position: sticky;
     top: 0;
+    padding-inline: 16px;
 }
 .header-content{
     display: flex;
@@ -92,7 +94,7 @@ header{
 .page-links{
     border-radius: 4px;
     padding: 8px 16px;
-    background: var(--fetch);
+    background: #1a1a1a;
     color: var(--fetchText);
     font-family: interSemiBold;
     width: fit-content;
