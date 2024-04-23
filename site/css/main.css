@@ -52,7 +52,7 @@ body, html {
 
 :root {
   --bodyBackground: #050505;
-  --header: linear-gradient(to bottom, rgba(0, 0, 0, 0.432), rgba(58, 58, 58, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
+  --header: linear-gradient(to bottom, rgba(0, 0, 0, 0.432), rgba(97, 97, 97, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
   --fetch: #1a1a1a;
   --footer: #070707;
   --title: #f6f6f6;
