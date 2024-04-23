@@ -51,7 +51,7 @@ body, html{
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #050505;
-    --header: linear-gradient(to bottom, rgba(0, 0, 0, 0.432), rgba(97, 97, 97, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
+    --header: linear-gradient(to bottom, rgba(0, 0, 0, 0.432), rgba(97, 97, 97, 0), var(--bodyBackground)), url(../bg/starrysky.jpg);
     --fetch: #1a1a1a;
     --footer: #070707;
 
@@ -74,6 +74,8 @@ body, html{
 header{
     height: 300px;
     background: var(--header);
+    background-size: cover;
+    background-position: 100% 90%;
     // position: sticky;
     // top: 0;
     padding-inline: 16px;
@@ -213,8 +215,7 @@ button.fetch-data{
 }
 .img-container{
     border-radius: 10px;
-    width: auto;
-    max-width: 50%;
+    width: 50%;
 }
 .spinner {
     display: none;
@@ -255,7 +256,6 @@ p.spinner-text{
 img{
     border-radius: inherit;
     width: 100%;
-    max-height: 75vh;
 }
 iframe{
     width: 100%;
