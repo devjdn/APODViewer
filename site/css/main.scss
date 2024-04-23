@@ -51,14 +51,14 @@ body, html{
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #050505;
-    --header: linear-gradient(to bottom, rgba(245, 66, 66, 0.432), rgba(66, 4, 4, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
+    --header: linear-gradient(to bottom, rgba(0, 0, 0, 0.432), rgba(58, 58, 58, 0.432), var(--bodyBackground)), url(../bg/starrysky.jpg);
     --fetch: #1a1a1a;
     --footer: #070707;
 
 
     --title: #f6f6f6;
     --lightDarkBtns: #ababab;
-    --bodyText: #ababab;
+    --bodyText: #e4e4e4;
     --highlightedText: #f6f6f6;
     --fetchText: #e0e0e0;
 
@@ -74,8 +74,8 @@ body, html{
 header{
     height: 300px;
     background: var(--header);
-    position: sticky;
-    top: 0;
+    // position: sticky;
+    // top: 0;
     padding-inline: 16px;
 }
 .header-content{
@@ -145,14 +145,14 @@ main{
 section.content-section{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     width: 66%;
     padding: 16px;
 }
 .intro{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 .intro-text{
     display: flex;
@@ -206,13 +206,15 @@ button.fetch-data{
     cursor: pointer;
     height: 36px;
 }
-.apod-content{
+.api-content{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
 }
 .img-container{
     border-radius: 10px;
+    width: auto;
+    max-width: 50%;
 }
 .spinner {
     display: none;
@@ -253,6 +255,7 @@ p.spinner-text{
 img{
     border-radius: inherit;
     width: 100%;
+    max-height: 75vh;
 }
 iframe{
     width: 100%;
@@ -260,7 +263,7 @@ iframe{
     display: none;
 }
 .explan-container{
-    width: 100%;
+    width: 50%;
 }
 p.explanation-title{
     font-size: 1.2em;
@@ -273,18 +276,10 @@ p.explanation{
     font-family: interRegular;
     color: var(--bodyText);
 }
-.rover-content{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
 #roverPhoto{
     border-radius: inherit;
 }
-.rover-explan-container{
-    display: flex;
-    gap: 6px;
-}
+
 li.date-container{
     display: flex;
     gap: 4px;
@@ -354,6 +349,16 @@ p.si-text{
         display: flex;
         flex-direction: column;
         gap: 16px;
+        width: 100%;
+    }
+    .api-content{
+        flex-direction: column;
+    }
+    .img-container{
+        width: 100%;
+        max-width: 100%;
+    }
+    .explan-container{
         width: 100%;
     }
     p.explanation{

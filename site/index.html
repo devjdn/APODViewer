@@ -11,7 +11,7 @@
 
     <!--JS FILES-->
     <script src="js/api.js"></script>
-    <script src="js/header.js"></script>
+    <!-- <script src="js/header.js"></script> -->
 
     <!--ICONS-->
     <script src="https://kit.fontawesome.com/0719efe947.js" crossorigin="anonymous"></script>
@@ -40,10 +40,10 @@
                         <a href="#APOD"><div class="link"><p class="link-text">APOD</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
-                        <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
+                        <a href="#rover"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
-                        <a href="#rover"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
+                        <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
                         <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
@@ -61,7 +61,6 @@
                     <div class="intro">
                         <div class="intro-text">
                             <h2>Astronomy Picture of the Day</h2>
-                            <p class="intro-description">View NASA's choice for Astronomy Picture of the Day. Alternatively, you can have us provide you with a random assortment of images with explanantions attached.</p>
                         </div>
                         <div class="fetch-container">
                             <p class="control-label">Select a date between 16 June 1995 to the present day, or click fetch straight away to view today's.</p>
@@ -71,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="apod-content">
+                    <div class="apod-content api-content">
                         <div class="img-container">
                             <div class="spinner">
                                 <div class="spinner-items">
@@ -86,8 +85,8 @@
                             <img class="apod-img" src="" alt="">
                             <iframe src="" frameborder="0"></iframe>
                         </div>
-                        <div class="apod-explan-container">
-                            <!-- <p class="explanation-title">APOD Explanation</p> -->
+                        <div class="apod-explan-container explan-container">
+                            <p class="explanation-title">APOD Explanation</p>
                             <p class="apod-explanation explanation"></p>
                         </div>
                     </div>
@@ -128,39 +127,20 @@
                                 spinner.style.display = 'none';
                             });
                         }
+
+                        getFetch();
                     </script>
-                </section>
-                <section class="EPIC content-section" id="EPIC">
-                    <div class="intro">
-                        <div class="intro-text">
-                            <h2>Earth Polychromatic Imaging Camera</h2>
-                            <p class="intro-description">Daily images of the Earth from the DSCOVR EPIC, positioned at the Earth-Sun Lagrange point.</p>
-                        </div>
-                        <div class="EPIC controls">
-                            <!-- <input class="data-range" type="date" name="" value=""> -->
-                            <button class="fetch-epic fetch-data">Fetch EPIC image</button>
-                        </div>
-                    </div>
-                    <div class="epic-content">
-                        <div class="img-container">
-                            <img class="epic-img" src="" alt="" frameborder="0">
-                        </div>
-                        <div class="epic-explan-container explan-container">
-                            <p class="epic-explanation explanation"></p>
-                        </div>
-                    </div>
                 </section>
                 <section class="rover content-section" id="rover">
                     <div class="intro">
                         <div class="intro-text">
                             <h2>Mars Rover Photos</h2>
-                            <p class="intro-description">View images from NASA's 3 Mars rovers: Curiosity, Opportunity, and Spirit. Enter your own queries and be provided by photos that match your query, for example, you can choose a specific camera or date on which a photo was taken.</p>
                         </div>
                         <div class="rover controls">
                            
                         </div>
                     </div>
-                    <div class="rover-content">
+                    <div class="rover-content api-content">
                         <div class="img-container">
                             <div class="spinner">
                                 <div class="spinner-items">
@@ -175,6 +155,7 @@
                             <img id="roverPhoto" src="" frameborder="0">
                         </div>
                         <div class="rover-explan-container explan-container">
+                            <p class="explanation-title">Mars Rover Information</p>
                             <ul>
                                 <li class="date-container">
                                     <p class="date-title">Earth date:</p>
@@ -212,6 +193,26 @@
                         .catch(error => console.error('Error fetching data:', error));
                     </script>
                 </section>
+                <section class="EPIC content-section" id="EPIC">
+                    <div class="intro">
+                        <div class="intro-text">
+                            <h2>Earth Polychromatic Imaging Camera</h2>
+                        </div>
+                        <div class="EPIC controls">
+                            <!-- <input class="data-range" type="date" name="" value=""> -->
+                            <button class="fetch-epic fetch-data">Fetch EPIC image</button>
+                        </div>
+                    </div>
+                    <div class="epic-content api-content">
+                        <div class="img-container">
+                            <img class="epic-img" src="" alt="" frameborder="0">
+                        </div>
+                        <div class="epic-explan-container explan-container">
+                            <p class="epic-explanation explanation"></p>
+                        </div>
+                    </div>
+                </section>
+                
             </div>
         </main>
         <footer>
