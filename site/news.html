@@ -100,7 +100,7 @@
         });
     </script>
     <script> 
-        fetch('https://newsapi.org/v2/everything?q=astronomy&apiKey=be9c70b2dc23414fb0ac471ca18ecb20')
+        /* fetch('https://newsapi.org/v2/everything?q=astronomy&apiKey=be9c70b2dc23414fb0ac471ca18ecb20')
         .then(response => {
             console.log('JSON response:', response);
             return response.json();
@@ -115,7 +115,19 @@
             } else {
                 console.error('No articles found in the response.');
             }
-        })
+        }) */
+        var url = 'https://newsapi.org/v2/everything?' +
+          'q=Apple&' +
+          'from=2024-04-26&' +
+          'sortBy=popularity&' +
+          'apiKey=be9c70b2dc23414fb0ac471ca18ecb20';
+
+var req = new Request(url);
+
+fetch(req)
+    .then(function(response) {
+        console.log(response.json());
+    })
     </script>
 </body>
 </html>

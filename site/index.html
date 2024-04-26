@@ -70,6 +70,7 @@
                             <div class="apod-controls controls">
                                 <input type="date" name="" value="">
                                 <button class="fetch-apod fetch-data">Fetch APOD</button>
+                                <button class="apodPopupBtn" aria-toggle="open">Image info</button>
                             </div>
                         </div>
                     </div>
@@ -88,51 +89,16 @@
                             <img class="apod-img" src="" alt="">
                             <iframe src="" frameborder="0"></iframe>
                         </div>
-                        <div class="apod-explan-container explan-container">
-                            <p class="explanation-title">APOD Explanation</p>
-                            <p class="apod-explanation explanation"></p>
+                        <div class="apod-explan-popup" id="apodPopupMenu" aria-hidden="true">
+                            <div class="apod-explan-container explan-container">
+                                <div class="popup-header">
+                                    <p class="explanation-title">APOD Explanation</p>
+                                    <button class="apodPopupBtn" aria-toggle="close"><i class='bx bx-x' ></i></button>
+                                </div>
+                                <p class="apod-explanation explanation"></p>
+                            </div>
                         </div>
                     </div>
-    
-                    <script>
-                        document.querySelector('.fetch-apod').addEventListener('click', getFetch);
-                
-                        function getFetch(){
-                            const choice = document.querySelector('input').value;
-                            console.log(choice);
-                
-                            const spinner = document.querySelector('.spinner');
-                            spinner.style.display = 'block'; // Show loading spinner
-                
-                            const url = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
-                
-                            fetch(url)
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data);
-                                if (data.media_type === 'image') {
-                                    document.querySelector('.apod-img').src = data.hdurl;
-                                    document.querySelector('iframe').style.display = 'none';
-                                    document.querySelector('.apod-img').style.display = 'block';
-                                } else if (data.media_type === 'video') {
-                                    document.querySelector('iframe').src = data.url;
-                                    document.querySelector('.apod-img').style.display = 'none';
-                                    document.querySelector('iframe').style.display = 'block';
-                                }
-                                document.querySelector('.apod-explanation').innerText = data.explanation;
-                
-                                // Hide loading spinner after receiving response
-                                spinner.style.display = 'none';
-                            })
-                            .catch(err => {
-                                console.log(`error ${err}`);
-                                // Hide loading spinner in case of error
-                                spinner.style.display = 'none';
-                            });
-                        }
-
-                        getFetch();
-                    </script>
                 </section>
                 <section class="rover content-section" id="rover">
                     <div class="intro">
@@ -175,28 +141,8 @@
                             </ul>
                         </div>
                     </div>
-                    <script>
-                        const apiKey = '8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'; 
-                        const rover = 'curiosity'; 
-                        const sol = '2000'; // Change to the sol (Martian day) you want to fetch the photo from 
-                        
-                        
-                        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${apiKey}`) 
-                        .then(response => response.json()) 
-                        .then(data => { // Assuming there is at least one photo 
-                            const photoUrl = data.photos[0].img_src; 
-                            const roverPhoto = document.getElementById('roverPhoto');
-                            roverPhoto.src = photoUrl;
-                            document.querySelector('.rover-earth-date').innerText = data.photos[0].earth_date;
-                            document.querySelector('.rover-launch-date').innerText = data.photos[0].rover.launch_date;
-                            document.querySelector('.rover-landing-date').innerText = data.photos[0].rover.landing_date;
-                            console.log(photoUrl); // Now you can use the photoUrl to display the image or do whatever you want with it 
-                        }) 
-                        
-                        .catch(error => console.error('Error fetching data:', error));
-                    </script>
                 </section>
-                <section class="EPIC content-section" id="EPIC">
+                <!-- <section class="EPIC content-section" id="EPIC">
                     <div class="intro">
                         <div class="intro-text">
                             <h2>Earth Polychromatic Imaging Camera</h2>
@@ -214,7 +160,7 @@
                             <p class="epic-explanation explanation"></p>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 
             </div>
         </main>
@@ -227,5 +173,75 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.querySelector('.fetch-apod').addEventListener('click', getFetch);
+
+        function getFetch(){
+            const choice = document.querySelector('input').value;
+            console.log(choice);
+
+            const spinner = document.querySelector('.spinner');
+            spinner.style.display = 'block'; // Show loading spinner
+
+            const url = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
+
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.media_type === 'image') {
+                    document.querySelector('.apod-img').src = data.hdurl;
+                    document.querySelector('iframe').style.display = 'none';
+                    document.querySelector('.apod-img').style.display = 'block';
+                } else if (data.media_type === 'video') {
+                    document.querySelector('iframe').src = data.url;
+                    document.querySelector('.apod-img').style.display = 'none';
+                    document.querySelector('iframe').style.display = 'block';
+                }
+                document.querySelector('.apod-explanation').innerText = data.explanation;
+
+                // Hide loading spinner after receiving response
+                spinner.style.display = 'none';
+            })
+            .catch(err => {
+                console.log(`error ${err}`);
+                // Hide loading spinner in case of error
+                spinner.style.display = 'none';
+            });
+        }
+
+        getFetch();
+    </script>
+    <script>
+        const apodPopupBtn = document.querySelectorAll('.apodPopupBtn');
+        const apodPopupMenu = document.getElementById('apodPopupMenu');
+
+        apodPopupBtn.forEach(button => {
+            button.addEventListener('click', function() {
+            const isHidden = apodPopupMenu.getAttribute('aria-hidden') === 'true';
+            apodPopupMenu.setAttribute('aria-hidden', !isHidden);
+        });
+        });
+    </script>
+    <script>
+        const apiKey = '8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV'; 
+        const rover = 'curiosity'; 
+        const sol = '2000'; // Change to the sol (Martian day) you want to fetch the photo from 
+        
+        
+        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${apiKey}`) 
+        .then(response => response.json()) 
+        .then(data => { // Assuming there is at least one photo 
+            const photoUrl = data.photos[0].img_src; 
+            const roverPhoto = document.getElementById('roverPhoto');
+            roverPhoto.src = photoUrl;
+            document.querySelector('.rover-earth-date').innerText = data.photos[0].earth_date;
+            document.querySelector('.rover-launch-date').innerText = data.photos[0].rover.launch_date;
+            document.querySelector('.rover-landing-date').innerText = data.photos[0].rover.landing_date;
+            console.log(photoUrl); // Now you can use the photoUrl to display the image or do whatever you want with it 
+        }) 
+        
+        .catch(error => console.error('Error fetching data:', error));
+    </script>
 </body>
 </html>
