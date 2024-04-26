@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oortcloud NewsBoard</title>
+    
+    <!--CSS FILES-->
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+
+    <!--JS FILES-->
+    <script src="js/api.js"></script>
+    
+    <!-- <script src="js/header.js"></script> -->
+
+    <!--ICONS-->
+    <script src="https://kit.fontawesome.com/0719efe947.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--EXTERNAL-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    <div class="page-content">
+        <header>
+            <div class="header-content">
+                <div class="header-name">
+                    <p class="name-title-small">Oortcloud <span class="colour-text">NewsBoard</span></p>
+                </div>
+                <div class="active-date">
+                    <p class="date-label">Today's date is</p>
+                    <p id="currentDate"></p>
+                </div>
+            </div>
+        </header>
+        <main>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script>
+        function updateDate() {
+          const currentDate = new Date();
+          const formattedDate = currentDate.toLocaleDateString(undefined, {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+          document.getElementById('currentDate').textContent = formattedDate;
+        }
+    
+        // Update the date initially
+        updateDate();
+    
+        // Update the date every second
+        setInterval(updateDate, 1000);
+      </script>
+</body>
+</html>

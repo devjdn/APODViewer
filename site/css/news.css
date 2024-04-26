@@ -1,0 +1,140 @@
+*, *::before, *::after {
+  box-sizing: border-box; /* Set the sizing of an element to include it's border */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-weight: unset;
+}
+
+* {
+  margin: 0; /* Set the default margin to 0 */
+  padding: 0; /* Set the default padding to 0 */
+  transition: all 0s;
+}
+
+ul[role=list], ol[role=list] {
+  list-style: none; /* Turn off numbered and unordered list decoration */
+}
+
+html:focus-within {
+  scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; /* Makes link undelines look better */
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%; /* Makes it responsive */
+  height: auto; /* Makes it responsive */
+  vertical-align: middle; /* Makes text next to inline images look better */
+  font-style: italic; /* If the images don't load it makes the alt decription look better */
+  background-repeat: no-repeat;
+  /* The background repeat and size are there if you want to load a picture first like a backroung image that is worse quality while the better quality image loads */
+  background-size: cover;
+}
+
+input, button, textarea, select {
+  font: inherit; /* Makes these elements inherit fonts */
+}
+
+body, html {
+  scroll-behavior: smooth; /* Makes normal scrolling smooth */
+  background: var(--bodyBackground);
+  min-height: 100vh;
+}
+
+:root {
+  --bodyBackground: #050505;
+  --header: #05050583;
+  --fetch: #1a1a1a;
+  --footer: #070707;
+  --title: #f6f6f6;
+  --lightDarkBtns: #ababab;
+  --bodyText: #e4e4e4;
+  --highlightedText: #f6f6f6;
+}
+
+.page-content {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  padding: 16px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  -webkit-backdrop-filter: blur(20px) saturate(100%);
+          backdrop-filter: blur(20px) saturate(100%);
+  background: var(--header);
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 100%;
+  gap: 32px;
+}
+
+.header-name {
+  display: flex;
+  flex-direction: column;
+}
+
+p.name-title-small {
+  font-size: 1.5em;
+  font-family: interSemiBold;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: interSemiBold;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+span.colour-text {
+  color: #5dff44;
+}
+
+.active-date {
+  display: flex;
+  gap: 6px;
+}
+
+p.date-label {
+  font-size: 1.25em;
+  font-family: interSemiBold;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+p#currentDate {
+  color: #5dff44;
+  font-size: 1.25em;
+  font-family: interSemiBold;
+  letter-spacing: -0.03em;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .header-content {
+    gap: 0;
+  }
+  p.name-title-small {
+    font-size: 1.25em;
+  }
+  p.date-label {
+    display: none;
+  }
+}/*# sourceMappingURL=news.css.map */
