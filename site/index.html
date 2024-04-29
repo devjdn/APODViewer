@@ -30,10 +30,6 @@
             <div class="header-content">
                 <div class="header-name">
                     <h1>Oortcloud</h1>
-                    <div class="title-description-wrapper">
-                        <p class="title-description">A Space API Project</p>
-                        <p class="title-description">API's provided by NASA, ESA, and Open Notify.</p>    
-                    </div>
                 </div>
                 <div class="page-link-container">
                     <div class="page-links" id="page-links">
@@ -57,24 +53,32 @@
                 </div>
             </div>
         </header>
+        <div class="hero">
+            <div class="title-description-wrapper">
+                <p class="site-description">A Space API Project</p>
+                <p class="site-description">API's provided by NASA, ESA, and Open Notify.</p>    
+            </div>
+        </div>
         <main>
             <div class="main-content">
                 
                 <section class="apod content-section" id="APOD">
-                    <div class="intro">
-                        <div class="intro-text">
-                            <h2>Astronomy Picture of the Day</h2>
-                        </div>
-                        <div class="fetch-container">
-                            <p class="control-label">Select a date between 16 June 1995 to the present day, or click fetch straight away to view today's.</p>
-                            <div class="apod-controls controls">
-                                <input type="date" name="" value="">
-                                <button class="fetch-apod fetch-data">Fetch APOD</button>
-                                <button class="apodPopupBtn" aria-toggle="open">Image info</button>
-                            </div>
-                        </div>
+                    <div class="section-title">
+                        <h2>Astronomy Picture of the Day</h2>
                     </div>
                     <div class="apod-content api-content">
+                        <div class="api-controls">
+                            <div class="control-container">
+                                <p class="control-label">Select a date between 16 June 1995 to the present day</p>
+                                <div class="controls">
+                                    <div class="date-input">
+                                        <input type="date" name="" value="">
+                                        <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
+                                        <button class="apodPopupBtn" aria-toggle="open"><i class='bx bxs-info-square' ></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="img-container">
                             <div class="spinner">
                                 <div class="spinner-items">
@@ -101,28 +105,10 @@
                     </div>
                 </section>
                 <section class="rover content-section" id="rover">
-                    <div class="intro">
-                        <div class="intro-text">
-                            <h2>Mars Rover Photos</h2>
-                        </div>
-                        <div class="rover controls">
-                           
-                        </div>
+                    <div class="section-title">
+                        <h2>Mars Rover Photos</h2>
                     </div>
                     <div class="rover-content api-content">
-                        <div class="img-container">
-                            <div class="spinner">
-                                <div class="spinner-items">
-                                    <div class="spinner-animation">
-                                        <div class="spinner-icon">
-                                            <i class='bx bx-loader'></i>
-                                        </div>
-                                        <p class="spinner-text">Loading API data...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <img id="roverPhoto" src="" frameborder="0">
-                        </div>
                         <div class="rover-explan-container explan-container">
                             <p class="explanation-title">Mars Rover Information</p>
                             <ul>
@@ -139,6 +125,19 @@
                                     <p class="rover-landing-date"></p>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="img-container">
+                            <div class="spinner">
+                                <div class="spinner-items">
+                                    <div class="spinner-animation">
+                                        <div class="spinner-icon">
+                                            <i class='bx bx-loader'></i>
+                                        </div>
+                                        <p class="spinner-text">Loading API data...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="roverPhoto" src="" frameborder="0">
                         </div>
                     </div>
                 </section>
