@@ -372,6 +372,10 @@ iframe {
   gap: 16px;
 }
 
+.apod-explan-container {
+  width: 66%;
+}
+
 .popup-header {
   display: flex;
   justify-content: space-between;
