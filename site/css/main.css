@@ -368,7 +368,6 @@ iframe {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 66%;
 }
 
 .popup-header {
