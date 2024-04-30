@@ -159,7 +159,7 @@ p.site-description {
 }
 
 main {
-  padding: 16px;
+  padding: 32px;
   min-height: calc(100vh - 50px);
 }
 
@@ -174,9 +174,7 @@ section.content-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 16px;
   width: 100%;
-  height: 100vh;
 }
 
 .section-title {
@@ -281,21 +279,21 @@ button.apodPopupBtn[aria-toggle=open] {
 }
 
 .api-content {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: column;
   gap: 36px;
 }
 
-#apodImages {
+#otherApods {
   display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 8px;
+  width: 100%;
 }
 
-#apodImages img {
+#otherApods img {
   grid-area: auto;
 }
 
@@ -354,9 +352,8 @@ p.spinner-text {
   font-family: geistMonoRegular;
 }
 
-img {
-  width: 100%;
-  grid-area: 1/1/2/2;
+img.apod-img {
+  height: 100vh;
 }
 
 iframe {
@@ -501,6 +498,14 @@ p.si-text {
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+  img.apod-img {
+    width: 100%;
+    height: auto;
+  }
+  #apodImages {
+    display: flex;
+    flex-direction: column;
   }
   .rover-content {
     flex-direction: column-reverse;

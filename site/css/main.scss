@@ -147,7 +147,7 @@ p.site-description{
     letter-spacing: -.03em;
 }
 main{
-    padding: 16px;
+    padding: 32px;
     min-height: calc(100vh - 50px);
 }
 .main-content{
@@ -160,9 +160,7 @@ section.content-section{
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 16px;
     width: 100%;
-    height: 100vh;
 }
 .section-title{
     display: flex;
@@ -253,19 +251,22 @@ button.apodPopupBtn[aria-toggle="open"]{
     place-items: center;
 }
 .api-content{
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
+    // display: grid;
+    // grid-template-rows: 1fr;
+    // grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: column;
     gap: 36px;
 }
-#apodImages{
+#otherApods{
     display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
     width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 8px;
+    width: 100%;
 }
-#apodImages img{
+#otherApods img{
     grid-area: auto;
 }
 .img-container{
@@ -315,10 +316,9 @@ p.spinner-text{
     color: var(--title);
     font-family: geistMonoRegular;
 }
-img{
+img.apod-img{
     // border-radius: inherit;
-    width: 100%;
-    grid-area: 1 / 1 / 2 / 2;
+    height: 100vh;
 }
 iframe{
     width: 100%;
@@ -445,6 +445,15 @@ p.si-text{
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+    img.apod-img{
+        // border-radius: inherit;
+        width: 100%;
+        height: auto;
+    }
+    #apodImages{
+        display: flex;
+        flex-direction: column;
     }
     .rover-content{
         flex-direction: column-reverse;

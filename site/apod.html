@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oortcloud</title>
+    
+    <!--CSS FILES-->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+
+    <!--JS FILES-->
+    <script src="js/api.js"></script>
+    <!-- <script src="js/header.js"></script> -->
+
+    <!--ICONS-->
+    <script src="https://kit.fontawesome.com/0719efe947.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--EXTERNAL-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css">
+</head>
+<html>
+<body>
+
+    <div class="page-content">
+        <header>
+            <div class="header-content">
+                <div class="header-name">
+                    <h1>Oortcloud</h1>
+                </div>
+                <div class="page-link-container">
+                    <div class="page-links" id="page-links">
+                        <a href="index.html"><div class="link"><p class="link-text">Home</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="rover.html"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="#apod"><div class="link"><p class="link-text">DONKI</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="news.html"><div class="link"><p class="link-text" id="newsboard">NewsBoard</p></div></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="hero">
+            <div class="title-description-wrapper">
+                <p class="site-description">Astronomy Picture of the Day</p>
+            </div>
+        </div>
+        <main>
+            <div class="main-content">
+                
+                <section class="apod content-section" id="APOD">
+                    <div class="section-title">
+                        <h2>Astronomy Picture of the Day</h2>
+                    </div>
+                    <div class="apod-content api-content">
+                        <div class="api-controls">
+                            <div class="control-container">
+                                <p class="control-label">Select a date between 16 June 1995 to the present day</p>
+                                <div class="controls">
+                                    <div class="date-input">
+                                        <input type="date" name="" value="2006-08-09">
+                                        <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
+                                        <button class="apodPopupBtn" aria-toggle="open"><i class='bx bxs-info-square' ></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-container">
+                            <div class="spinner">
+                                <div class="spinner-items">
+                                    <div class="spinner-animation">
+                                        <div class="spinner-icon">
+                                            <i class='bx bx-loader'></i>
+                                        </div>
+                                        <p class="spinner-text">Loading API data...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="apod-img" src="" alt="">
+                            <iframe src="" frameborder="0"></iframe>
+                        </div>
+                        <div class="apod-explan-popup" id="apodPopupMenu" aria-hidden="true">
+                            <div class="apod-explan-container explan-container">
+                                <div class="popup-header">
+                                    <p class="explanation-title">APOD Explanation</p>
+                                    <button class="apodPopupBtn" aria-toggle="close"><i class='bx bx-x' ></i></button>
+                                </div>
+                                <p class="apod-explanation explanation"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="other-apods content-section" id="apodImages">
+                    <div class="section-title">
+                        <h2>Other APODs</h2>
+                    </div>
+                    <div class="api-controls">
+                        <div class="control-container">
+                            <p class="control-label">Select a date between 16 June 1995 to the present day</p>
+                            <div class="controls">
+                                <div class="date-input">
+                                    <input type="number" id="countValue" value="6">
+                                    <button class="fetch-count fetch-data"><i class='bx bx-transfer'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-apod-imgs" id="otherApods">
+
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <div class="site-info">
+                    <p class="si-text">INFO VIA <a href="https://api.nasa.gov" target="_blank" style="text-decoration: underline;">API.NASA.GOV</a></p>
+                    <p class="si-text">JAYDEN PRIESTLEY 2024</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.querySelector('.fetch-apod').addEventListener('click', getFetch);
+
+        function getFetch(){
+            const choice = document.querySelector('input').value;
+            console.log(choice);
+
+            const spinner = document.querySelector('.spinner');
+            spinner.style.display = 'block'; // Show loading spinner
+
+            const mainApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
+
+            fetch(mainApodUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.media_type === 'image') {
+                    document.querySelector('.apod-img').src = data.hdurl;
+                    document.querySelector('iframe').style.display = 'none';
+                    document.querySelector('.apod-img').style.display = 'block';
+                } else if (data.media_type === 'video') {
+                    document.querySelector('iframe').src = data.url;
+                    document.querySelector('.apod-img').style.display = 'none';
+                    document.querySelector('iframe').style.display = 'block';
+                }
+                document.querySelector('.apod-explanation').innerText = data.explanation;
+
+                // Hide loading spinner after receiving response
+                spinner.style.display = 'none';
+            })
+            .catch(err => {
+                console.log(`error ${err}`);
+                // Hide loading spinner in case of error
+                spinner.style.display = 'none';
+            });
+        }
+
+        getFetch();
+
+        const apodPopupBtn = document.querySelectorAll('.apodPopupBtn');
+        const apodPopupMenu = document.getElementById('apodPopupMenu');
+
+        apodPopupBtn.forEach(button => {
+            button.addEventListener('click', function() {
+            const isHidden = apodPopupMenu.getAttribute('aria-hidden') === 'true';
+            apodPopupMenu.setAttribute('aria-hidden', !isHidden);
+        });
+        });
+
+        function fetchOtherApods() {
+            const otherApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&count=6`;
+            const count = document.getElementById('countValue').value;
+
+            fetch(otherApodUrl)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                displayImages(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+        function displayImages(apodData) {
+                var apodImagesContainer = document.getElementById('otherApods');
+                apodImagesContainer.innerHTML = ''; // Clear previous images
+
+                apodData.forEach(apod => {
+                    var img = document.createElement('img');
+                    img.src = apod.url;
+                    img.alt = apod.title;
+                    apodImagesContainer.appendChild(img);
+            });
+        }
+
+        fetchOtherApods();
+    </script>
+</body>
+</html>
