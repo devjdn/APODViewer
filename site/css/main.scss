@@ -161,6 +161,8 @@ section.content-section{
     flex-direction: column;
     gap: 24px;
     padding: 16px;
+    width: 100%;
+    height: 100vh;
 }
 .section-title{
     display: flex;
@@ -215,6 +217,15 @@ input[type="date"]{
 input.data-range:focus{
     outline: var(--dataActiveOutline);
 }
+input#countValue{
+    background: var(--fetch);
+    border: 1px solid #292929;
+    border-radius: 4px;
+    font-family: interMedium;
+    padding: 8px;
+    color: var(--fetchText);
+    height: 36px;
+}
 button.fetch-data{
     background: var(--fetch);
     display: grid;
@@ -246,6 +257,16 @@ button.apodPopupBtn[aria-toggle="open"]{
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 2fr;
     gap: 36px;
+}
+#apodImages{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+}
+#apodImages img{
+    grid-area: auto;
 }
 .img-container{
     border-radius: 10px;
@@ -423,6 +444,7 @@ p.si-text{
     .api-content{
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
     .rover-content{
         flex-direction: column-reverse;
