@@ -70,7 +70,7 @@
                             <div class="control-container">
                                 <p class="control-label">Select a date between 16 June 1995 to the present day</p>
                                 <div class="controls">
-                                    <div class="date-input">
+                                    <div class="date-input input-row">
                                         <input type="date" name="" value="2006-08-09">
                                         <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
                                         <button class="apodPopupBtn" aria-toggle="open"><i class='bx bxs-info-square' ></i></button>
@@ -103,23 +103,51 @@
                         </div>
                     </div>
                 </section>
-                <section class="other-apods content-section" id="apodImages">
+                <section class="search-apods content-section" id="apodImages">
                     <div class="section-title">
-                        <h2>Other APODs</h2>
+                        <h2>APOD Search</h2>
                     </div>
                     <div class="api-controls">
                         <div class="control-container">
-                            <p class="control-label">Select a date between 16 June 1995 to the present day</p>
+                            <p class="control-label">Type in a search input, and receive an Astronomy Picture of the Day that's closest to your search.</p>
                             <div class="controls">
-                                <div class="date-input">
-                                    <input type="number" id="countValue" value="6">
+                                <div class="search-input input-row">
+                                    <input type="text" id="search-bar" placeholder="Enter search term">
+                                    <button id="search-button"><i class='bx bx-search'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="searchedApods">
+
+                    </div>
+                </section>
+                <section class="other-apods content-section" id="apodImages">
+                    <div class="section-title">
+                        <h2>APOD Generator</h2>
+                    </div>
+                    <div class="api-controls">
+                        <div class="control-container">
+                            <p class="control-label">Select a value between 6 and 100 to choose the number of APODs displayed. Higher numbers may slow loading time, depending on internet speed and NASA's API traffic.</p>
+                            <div class="controls">
+                                <div class="count-input input-row">
+                                    <input type="number" id="countValue" value="6" min="6" max="100">
                                     <button class="fetch-count fetch-data"><i class='bx bx-transfer'></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="other-apod-imgs" id="otherApods">
-
+                        <!-- <div class="spinner">
+                            <div class="spinner-items">
+                                <div class="spinner-animation">
+                                    <div class="spinner-icon">
+                                        <i class='bx bx-loader'></i>
+                                    </div>
+                                    <p class="spinner-text">Loading API data...</p>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
@@ -182,10 +210,38 @@
         });
         });
 
-        function fetchOtherApods() {
-            const otherApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&count=6`;
-            const count = document.getElementById('countValue').value;
+        document.getElementById('search-button').addEventListener('click', function() {
+            var searchTerm = document.getElementById('search-bar').value;
+            searchAPOD(searchTerm);
+        });
 
+        function searchAPOD(searchTerm) {
+            var searchUrl = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV' + '&concept_tags=True&search_query=' + searchTerm;
+   
+        fetch(searchUrl)
+        .then(response => response.json())
+        .then(data => {
+            var imageUrl = data.url;
+            var imageContainer = document.getElementById('searchedApods');
+            imageContainer.innerHTML = ''; // Clear previous image
+
+            var img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'NASA APOD';
+            img.id = 'apod-image';
+            imageContainer.appendChild(img);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        }
+
+        document.querySelector('.fetch-count').addEventListener('click', fetchOtherApods);
+
+        function fetchOtherApods() {
+            const count = document.getElementById('countValue').value;
+            const otherApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&count=${count}`;
+            
             fetch(otherApodUrl)
             .then(res => res.json())
             .then(data => {
