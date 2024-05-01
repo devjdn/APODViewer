@@ -331,7 +331,7 @@ button.apodPopupBtn[aria-toggle=open] {
 .api-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 #otherApods {
