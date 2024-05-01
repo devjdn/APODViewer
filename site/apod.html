@@ -87,6 +87,7 @@
                                         <button class="apodPopupBtn" aria-toggle="open"><i class='bx bxs-info-square' ></i></button>
                                     </div>
                                 </div>
+                                <p class="apod-title"></p>
                             </div>
                         </div>
                         <div class="img-container">
@@ -189,7 +190,7 @@
                     document.querySelector('iframe').style.display = 'block';
                 }
                 document.querySelector('.apod-explanation').innerText = data.explanation;
-
+                document.querySelector('.apod-title').innerText = data.title;
                 // Hide loading spinner after receiving response
                 spinner.style.display = 'none';
             })
