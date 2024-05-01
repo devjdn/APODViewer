@@ -474,8 +474,10 @@ p.si-text{
 }
 //-----------MEDIA QUERIES----------//
 @media only screen and (min-width: 0px) and (max-width: 900px) {
-    .header-content .page-link-container{
-        display: none;
+    .page-link-container{
+        height: 0;
+        overflow: hidden;
+        width: 100%;
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 800px) {
