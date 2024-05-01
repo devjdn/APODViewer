@@ -1,59 +1,44 @@
-let darkMode = localStorage.getItem('darkMode');
-const darkModeToggle = document.querySelector('#dark-mode-toggle');
+let LightMode = localStorage.getItem('lightMode');
 
+console.log(LightMode);
 
-console.log(darkMode);
-
-//check if dark mode is enabled
+//check if Light mode is enabled
 //if enabled we want to turn it off
 //if disabled turn it on
 const enableGreyMode = () => {
-    //add class darkmode to the body
+    //add class Lightmode to the body
     document.body.classList.add('greymode');
-    //update darkmode in the local storage
+    //update Lightmode in the local storage
     localStorage.setItem('greyMode', 'enabled');
 }; 
 
 
-const enableDarkMode = () => {
-    //add class darkmode to the body
-    document.body.classList.add('darkmode');
-    //update darkmode in the local storage
-    localStorage.setItem('darkMode', 'enabled');
+const enableLightMode = () => {
+    //add class Lightmode to the body
+    document.body.classList.add('lightmode');
+    //update Lightmode in the local storage
+    localStorage.setItem('lightMode', 'enabled');
 };
 
-const disableDarkMode = () => {
-    //add class darkmode to the body
-    document.body.classList.remove('darkmode');
-    //update darkmode in the local storage
-    localStorage.setItem('darkMode', null);
+const disableLightMode = () => {
+    //add class Lightmode to the body
+    document.body.classList.remove('lightmode');
+    //update Lightmode in the local storage
+    localStorage.setItem('lightMode', null);
 };
 
-if (darkMode === 'enabled') {
-    enableDarkMode();
+if (LightMode === 'enabled') {
+    enableLightMode();
 }
-
-
-darkModeToggle.addEventListener('click', () => {
-    darkMode = localStorage.getItem('darkMode');
+/*LightModeToggle.addEventListener('click', () => {
+    LightMode = localStorage.getItem('LightMode');
     
-    if (darkMode !== 'enabled') {
-        enableDarkMode();
-        console.log(darkMode);
+    if (LightMode !== 'enabled') {
+        enableLightMode();
+        console.log(LightMode);
     } else {
-        disableDarkMode();
-        console.log(darkMode);
+        disableLightMode();
+        console.log(LightMode);
     }
-});
+});*/
 
-function toggleColorScheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (prefersDark) {
-        enableDarkMode();
-        // Add other styles for light mode
-    } else {
-        disableDarkMode();
-        // Add other styles for dark mode
-    }
-}

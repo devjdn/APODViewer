@@ -39,16 +39,27 @@
                         <a href="rover.html"><div class="link"><p class="link-text">Mars Rover Photos</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
-                        <a href="#EPIC"><div class="link"><p class="link-text">EPIC</p></div></a>
+                        <a href="#"><div class="link"><p class="link-text">EONET</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="#"><div class="link"><p class="link-text">SSD/CNEOS</p></div></a>
+                    </div>
+                    <div class="page-links" id="page-links">
+                        <a href="#"><div class="link"><p class="link-text">SWDONKI</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
                         <a href="#apod"><div class="link"><p class="link-text">Mars Weather Service</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
-                        <a href="#apod"><div class="link"><p class="link-text">DONKI</p></div></a>
-                    </div>
-                    <div class="page-links" id="page-links">
                         <a href="news.html"><div class="link"><p class="link-text" id="newsboard">NewsBoard</p></div></a>
+                    </div>
+                    <div class="light-dark-mode">
+                        <button class="light-dark" onclick="enableLightMode()">
+                            <i class='bx bxs-sun'></i>
+                        </button>
+                        <button class="light-dark" onclick="disableLightMode()">
+                            <i class='bx bxs-moon' ></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -103,7 +114,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="search-apods content-section" id="apodImages">
+                <!-- <section class="search-apods content-section" id="apodImages">
                     <div class="section-title">
                         <h2>APOD Search</h2>
                     </div>
@@ -121,7 +132,7 @@
                     <div id="searchedApods">
 
                     </div>
-                </section>
+                </section> -->
                 <section class="other-apods content-section" id="apodImages">
                     <div class="section-title">
                         <h2>APOD Generator</h2>
@@ -138,16 +149,7 @@
                         </div>
                     </div>
                     <div class="other-apod-imgs" id="otherApods">
-                        <!-- <div class="spinner">
-                            <div class="spinner-items">
-                                <div class="spinner-animation">
-                                    <div class="spinner-icon">
-                                        <i class='bx bx-loader'></i>
-                                    </div>
-                                    <p class="spinner-text">Loading API data...</p>
-                                </div>
-                            </div>
-                        </div> -->
+
                     </div>
                 </section>
             </div>
@@ -210,32 +212,6 @@
         });
         });
 
-        document.getElementById('search-button').addEventListener('click', function() {
-            var searchTerm = document.getElementById('search-bar').value;
-            searchAPOD(searchTerm);
-        });
-
-        function searchAPOD(searchTerm) {
-            var searchUrl = 'https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV' + '&concept_tags=True&search_query=' + searchTerm;
-   
-        fetch(searchUrl)
-        .then(response => response.json())
-        .then(data => {
-            var imageUrl = data.url;
-            var imageContainer = document.getElementById('searchedApods');
-            imageContainer.innerHTML = ''; // Clear previous image
-
-            var img = document.createElement('img');
-            img.src = imageUrl;
-            img.alt = 'NASA APOD';
-            img.id = 'apod-image';
-            imageContainer.appendChild(img);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        }
-
         document.querySelector('.fetch-count').addEventListener('click', fetchOtherApods);
 
         function fetchOtherApods() {
@@ -266,5 +242,6 @@
 
         fetchOtherApods();
     </script>
+    <script src="js/appearance.js"></script>
 </body>
 </html>
