@@ -425,6 +425,7 @@ p.apod-title{
     font-family: interMedium;
     color: var(--title);
     margin-bottom: 4px;
+    text-align: center;
 }
 p.explanation{
     font-size: 1em;
@@ -514,8 +515,9 @@ p.si-text{
         height: auto;
     }
     #otherApods{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
     }
     .rover-content{
         flex-direction: column-reverse;
