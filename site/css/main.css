@@ -47,6 +47,7 @@ img, picture, svg, video, canvas {
 input, button, textarea, select {
   font: inherit; /* Makes these elements inherit fonts */
   border: none;
+  border-radius: 0;
 }
 
 body, html {
