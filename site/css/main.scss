@@ -55,7 +55,7 @@ body, html{
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #050505;
-    --header: #0f0f0f46;
+    --header: #0f0f0f;
     --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #002da7;
     --popup: #050505;
     --footer: #070707;
@@ -74,7 +74,7 @@ body, html{
 }
 .lightmode{
     --bodyBackground: #f1f1f1;
-    --header: #fafafa70;
+    --header: #fafafa;
     --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #002da7;
     --popup: #ececec;
     --footer: #ececec;
@@ -154,6 +154,13 @@ button.light-dark{
     cursor: pointer;
     display: grid;
     place-items: center;
+}
+.mobile-nav-dropdown{
+    display: none;
+}
+.dropdown-menu{
+    height: 0;
+    overflow: hidden;
 }
 //-----------MAIN----------//
 .hero{
@@ -473,11 +480,36 @@ p.si-text{
     color: var(--bodyText);
 }
 //-----------MEDIA QUERIES----------//
-@media only screen and (min-width: 0px) and (max-width: 900px) {
+@media only screen and (min-width: 0px) and (max-width: 970px) {
+    .header-content .page-link-container{
+        display: none;
+    }
     .page-link-container{
-        height: 0;
-        overflow: hidden;
+        flex-direction: column;
+    }
+    .mobile-nav-dropdown{
+        display: grid;
+        place-items: center;
+    }
+    .bi-chevron-compact-down{
+        fill: var(--title);
+    }
+    .dropdown-menu{
+        position: fixed;
+        top: 50px;
+        left: 0;
         width: 100%;
+        background: var(--header);
+        backdrop-filter: blur(24px) saturate(100%);
+        overflow: hidden;
+        padding-inline: 16px;
+    }
+    .dropdown-menu[aria-hidden="false"]{
+        height: calc(100vh - 50px);
+        padding: 16px;
+    }
+    .dropdown-menu[aria-hidden="true"]{
+        height: 0;
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 800px) {
@@ -489,11 +521,11 @@ p.si-text{
     }
     .header-content{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
-        gap: 32px;
+        gap: 0;
     }
     p.site-description{
         letter-spacing: -.03em;
