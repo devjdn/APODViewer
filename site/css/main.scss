@@ -71,19 +71,19 @@ body, html{
     --dataActiveOutline: 1px solid #646464;
 }
 .lightmode{
-    --bodyBackground: #ececec;
-    --header: #0f0f0f46;
+    --bodyBackground: #f1f1f1;
+    --header: #fafafa70;
     --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #002da7;
-    --footer: #070707;
+    --footer: #ececec;
 
 
-    --title: #f6f6f6;
-    --lightDarkBtns: #ababab;
-    --bodyText: #e4e4e4;
-    --highlightedText: #f6f6f6;
-    --fetchText: #e0e0e0;
-    --link: #e0e0e0;
-    --linkHover: #bbbbbb;
+    --title: #1b1b1b;
+    --lightDarkBtns: #2b2b2b;
+    --bodyText: #202020;
+    --highlightedText: #1b1b1b;
+    --fetchText: #e4e4e4;
+    --link: #202020;
+    --linkHover: #3d3d3d;
 
 
     --dataActiveOutline: 1px solid #646464;
@@ -154,7 +154,6 @@ button.light-dark{
 }
 //-----------MAIN----------//
 .hero{
-    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero2.png);
     background-size: cover;
     background-position: 100% 40%;
     display: grid;
@@ -164,10 +163,20 @@ button.light-dark{
     padding: 32px;
     height: 300px;
 }
+.hero[aria-page="home"]{
+    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-home.png);
+}
+.hero[aria-page="apod"]{
+    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-apod.jpg);
+}
+.hero[aria-page="rover"]{
+    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-mars.webp);
+    background-position: 100% 50%;
+}
 p.site-description{
     font-size: 2.5em;
     font-family: interBold;
-    color: var(--title);
+    color: #f6f6f6;
     letter-spacing: -.03em;
     text-align: center;
 }
@@ -291,7 +300,7 @@ button.apodPopupBtn[aria-toggle="open"]{
     // grid-template-columns: 1fr 2fr;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 12px;
 }
 #otherApods{
     display: grid;
@@ -386,6 +395,11 @@ iframe{
     flex-direction: column;
     gap: 16px;
 }
+.rover-info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 .apod-explan-container{
     width: 66%;
 }
@@ -418,13 +432,16 @@ li.date-container{
 }
 p.date-title{
     font-size: .9em;
-    font-family: interRegular;
+    font-family: interMedium;
     color: var(--title);
 }
 p.rover-earth-date, p.rover-launch-date, p.rover-landing-date{
     font-size: .9em;
-    font-family: interRegular;
+    font-family: interMedium;
     color: var(--bodyText);
+}
+#roverPhoto{
+    width: 100%;
 }
 //-----------FOOTER----------//
 footer{
@@ -447,7 +464,7 @@ p.si-text{
     color: var(--bodyText);
 }
 //-----------MEDIA QUERIES----------//
-@media only screen and (min-width: 0px) and (max-width: 1220px) {
+@media only screen and (min-width: 0px) and (max-width: 900px) {
     .header-content .page-link-container{
         display: none;
     }
@@ -468,7 +485,6 @@ p.si-text{
         gap: 32px;
     }
     p.site-description{
-        color: var(--title);
         letter-spacing: -.03em;
     }
     main{
