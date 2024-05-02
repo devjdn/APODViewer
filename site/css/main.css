@@ -142,13 +142,6 @@ p[id=newsboard] {
   height: fit-content;
 }
 
-h1 {
-  font-size: 1.5em;
-  font-family: interMedium;
-  color: var(--title);
-  letter-spacing: -0.03em;
-}
-
 .light-dark-mode {
   display: flex;
   align-items: center;
@@ -198,17 +191,8 @@ button.light-dark {
   background-position: 100% 50%;
 }
 
-p.site-description {
-  font-size: 2.5em;
-  font-family: interBold;
-  color: #f6f6f6;
-  letter-spacing: -0.03em;
-  text-align: center;
-}
-
 main {
   padding: 32px;
-  min-height: calc(100vh - 50px);
 }
 
 .main-content {
@@ -218,18 +202,46 @@ main {
   align-items: center;
 }
 
-section.content-section {
+.section-title {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+section.content-section {
+  display: flex;
   gap: 8px;
   width: 100%;
   padding-inline: 15vw;
 }
 
-.section-title {
-  display: flex;
+section.home {
+  flex-direction: row;
+  height: 350px;
+  padding-inline: 3vw;
+}
+
+section.apod {
   flex-direction: column;
-  gap: 8px;
+}
+
+section.rover {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-family: interMedium;
+  color: var(--title);
+  letter-spacing: -0.03em;
+}
+
+p.site-description {
+  font-size: 2.5em;
+  font-family: interBold;
+  color: #f6f6f6;
+  letter-spacing: -0.03em;
+  text-align: center;
 }
 
 h2 {
@@ -243,6 +255,22 @@ p.intro-description {
   font-size: 1em;
   font-family: interRegular;
   color: var(--bodyText);
+}
+
+p.si-text {
+  font-size: 1em;
+  font-family: geistMonoRegular;
+  color: var(--bodyText);
+}
+
+.home-nav {
+  height: 100%;
+  aspect-ratio: 9/16;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-flow: dense;
 }
 
 .api-controls {
@@ -443,35 +471,8 @@ iframe {
   display: grid;
 }
 
-.explan-container {
-  background: var(--popup);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.rover-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .apod-explan-container {
   width: 66%;
-}
-
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-p.explanation-title {
-  font-size: 1.2em;
-  font-family: interMedium;
-  color: var(--title);
-  margin-bottom: 4px;
 }
 
 button.apodPopupBtn[aria-toggle=close] {
@@ -489,10 +490,37 @@ p.apod-title {
   text-align: center;
 }
 
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.explan-container {
+  background: var(--popup);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+p.explanation-title {
+  font-size: 1.2em;
+  font-family: interMedium;
+  color: var(--title);
+  margin-bottom: 4px;
+}
+
 p.explanation {
   font-size: 1em;
   font-family: interRegular;
   color: var(--bodyText);
+}
+
+.rover-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 li.date-container {
@@ -535,12 +563,6 @@ footer {
 .site-info {
   height: -moz-fit-content;
   height: fit-content;
-}
-
-p.si-text {
-  font-size: 1em;
-  font-family: geistMonoRegular;
-  color: var(--bodyText);
 }
 
 @media only screen and (min-width: 0px) and (max-width: 970px) {
