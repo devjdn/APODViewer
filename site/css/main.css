@@ -16,6 +16,10 @@ ul[role=list], ol[role=list] {
   list-style: none; /* Turn off numbered and unordered list decoration */
 }
 
+li {
+  list-style-type: none;
+}
+
 html:focus-within {
   scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
 }
@@ -553,16 +557,32 @@ footer {
 
 .footer-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   height: 100%;
   width: 100%;
   padding: 5vh;
+  gap: 36px;
 }
 
 .site-info {
   height: -moz-fit-content;
   height: fit-content;
+  width: 100%;
+}
+
+.global-links {
+  width: 100%;
+}
+
+p.si-text {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+p.global-link-text {
+  font-size: 1em;
+  font-family: geistMonoRegular;
+  color: var(--bodyText);
 }
 
 @media only screen and (min-width: 0px) and (max-width: 970px) {
@@ -596,6 +616,12 @@ footer {
   }
   .dropdown-menu[aria-hidden=true] {
     height: 0;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 800px) {
