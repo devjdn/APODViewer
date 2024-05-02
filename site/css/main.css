@@ -9,7 +9,7 @@
 * {
   margin: 0; /* Set the default margin to 0 */
   padding: 0; /* Set the default padding to 0 */
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 
 ul[role=list], ol[role=list] {
@@ -346,7 +346,7 @@ button.apodPopupBtn[aria-toggle=open] {
 
 #otherApods {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   width: 100%;
   gap: 8px;
