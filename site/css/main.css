@@ -41,7 +41,8 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  -webkit-text-decoration: underline #ff6d0b;
+          text-decoration: underline #ff6d0b;
   color: var(--linkHover);
 }
 
@@ -144,7 +145,7 @@ header {
 }
 
 p[id=newsboard] {
-  color: #5dff44;
+  color: #ff6d0b;
 }
 
 .title {
@@ -192,6 +193,7 @@ button.light-dark {
 .hero[aria-page=home] {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-home.png);
   background-position: 100% 50%;
+  margin-bottom: 48px;
 }
 
 .hero[aria-page=apod] {
@@ -262,6 +264,14 @@ p.api-provider {
   text-align: center;
 }
 
+p.site-intro-text {
+  font-family: interMedium;
+  font-size: 1.3em;
+  color: var(--title);
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
 h2 {
   font-size: 1.75em;
   font-family: interMedium;
@@ -288,6 +298,34 @@ p.si-text {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  place-items: end left;
+  padding: 16px;
+}
+
+article {
+  height: 350px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.home-nav-text {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.home-nav i {
+  color: #ff6d0b;
+  font-size: 1.75em;
+}
+
+p.page-title {
+  font-size: 1.75em;
+  font-family: interMedium;
+  color: #fff;
+  letter-spacing: -0.02em;
 }
 
 .apod-page {
@@ -298,6 +336,28 @@ p.si-text {
 .mrp-page {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-mars.webp);
   background-position: 100% 50%;
+}
+
+.eonet-page {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/earth.jpg);
+  background-position: 30% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ssd-cneos-page {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/ssd-cneos.jpg);
+  background-position: 30% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.swdonki-page {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/swdonki.webp);
+}
+
+.mws-page {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/mws.jpg);
 }
 
 .api-controls {
@@ -633,6 +693,20 @@ p.global-link-text {
   .hero[aria-page=rover] {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-mars.webp);
     background-position: 90% 50%;
+  }
+  .apod-page {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9333333333)), url(../bg/hubble.jpg);
+    background-position: 30% 50%;
+  }
+  .mrp-page {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-mars.webp);
+    background-position: 90% 50%;
+  }
+  p.page-title {
+    font-size: 1.3em;
+  }
+  .home-nav i {
+    font-size: 1.3em;
   }
   .footer-content {
     flex-direction: column;
