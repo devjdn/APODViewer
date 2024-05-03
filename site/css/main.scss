@@ -140,8 +140,8 @@ p[id="newsboard"]{
 }
 .light-dark-mode{
     display: flex;
-    align-items: center;
     gap: 12px;
+    height: fit-content;
 }
 button.light-dark{
     border: none;
