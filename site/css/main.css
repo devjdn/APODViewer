@@ -73,7 +73,7 @@ body, html {
 
 :root {
   --bodyBackground: #050505;
-  --header: #0f0f0fb2;
+  --header: #0f0f0f;
   --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
   --popup: #050505;
   --footer: #070707;
@@ -90,7 +90,7 @@ body, html {
 
 .lightmode {
   --bodyBackground: #f1f1f1;
-  --header: #ffffffb2;
+  --header: #ffffff;
   --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
   --popup: #ececec;
   --footer: #ececec;
