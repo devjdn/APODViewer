@@ -4,11 +4,13 @@
     user-select: none;
     font-weight: unset;
 }
-
+br{
+    display: none;
+}
 *{
     margin: 0; /* Set the default margin to 0 */
     padding: 0; /* Set the default padding to 0 */
-    transition: all .4s;
+    transition: all .2s, color 0s;
 }
 
 ul[role='list'], ol[role='list']{
@@ -28,6 +30,12 @@ a:not([class]){
 a{
     all: unset;
     cursor: pointer;
+    font-family: geistMonoMedium;
+    color: var(--link);
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--linkHover);
 }
 button{
     all: unset;
@@ -58,27 +66,28 @@ body, html{
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #050505;
-    --header: #0f0f0f;
-    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #002da7;
+    --header: #0f0f0fb2;
+    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
     --popup: #050505;
     --footer: #070707;
 
 
-    --title: #f6f6f6;
+    --title: #cacaca;
     --lightDarkBtns: #ababab;
     --bodyText: #e4e4e4;
     --highlightedText: #f6f6f6;
     --fetchText: #e0e0e0;
-    --link: #e0e0e0;
-    --linkHover: #bbbbbb;
+    --link: #a8a8a8;
+    --linkHover: #f3f3f3;
 
 
+    --dataTable: 1px solid #3f3f3f;
     --dataActiveOutline: 1px solid #646464;
 }
 .lightmode{
     --bodyBackground: #f1f1f1;
-    --header: #fafafa;
-    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #002da7;
+    --header: #ffffffb2;
+    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
     --popup: #ececec;
     --footer: #ececec;
 
@@ -92,6 +101,7 @@ body, html{
     --linkHover: #3d3d3d;
 
 
+    --dataTable: 1px solid #646464;
     --dataActiveOutline: 1px solid #646464;
 }
 .page-content{
@@ -123,13 +133,7 @@ header{
 .page-links{
     border-radius: 4px;
     padding: 8px 16px;
-    color: var(--link);
-    font-family: interSemiBold;
     width: fit-content;
-    transition: all .1s;
-}
-.page-links:hover{
-    color: var(--linkHover);
     transition: all .1s;
 }
 p[id="newsboard"]{
@@ -172,6 +176,7 @@ button.light-dark{
 }
 .hero[aria-page="home"]{
     background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-home.png);
+    background-position: 100% 50%;
 }
 .hero[aria-page="apod"]{
     background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-apod.jpg);
@@ -182,7 +187,6 @@ button.light-dark{
 }
 main{
     padding: 32px;
-    // min-height: calc(100vh - 50px);
 }
 .main-content{
     display: flex;
@@ -203,9 +207,8 @@ section.content-section{
     padding-inline: 15vw;
 }
 section.home{
-    flex-direction: row;
-    height: 350px;
-    padding-inline: 3vw;
+    flex-direction: column;
+    padding: 0;
 }
 section.apod{
     flex-direction: column;
@@ -227,6 +230,12 @@ p.site-description{
     letter-spacing: -.03em;
     text-align: center;
 }
+p.api-provider{
+    font-family: interMedium;
+    color: #f6f6f6;
+    letter-spacing: -.03em;
+    text-align: center;
+}
 h2{
     font-size: 1.75em;
     font-family: interMedium;
@@ -241,17 +250,24 @@ p.intro-description{
 p.si-text{
     font-size: 1em;
     font-family: geistMonoRegular;
-    color: var(--bodyText);
+    color: var(--link);
 }
 //-----------HOME----------//
 .home-nav{
-    height: 100%;
-    aspect-ratio: 9 / 16;
+    height: 350px;
+    width: 100%;
     gap: 16px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-auto-flow: dense;
+}
+.apod-page{
+    background: linear-gradient(to bottom, #00000000, #000000ee), url(../bg/hubble.jpg);
+    background-position: 100% 50%;
+}
+.mrp-page{
+    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-mars.webp);
+    background-position: 100% 50%;
 }
 //-----------APODS----------//
 .api-controls{
@@ -260,8 +276,8 @@ p.si-text{
     gap: 8px;
 }
 p.control-label{
-    font-size: 1em;
-    font-family: interMedium;
+    font-size: .8em;
+    font-family: geistMonoRegular;
     color: var(--bodyText);
 }
 .control-container{
@@ -280,29 +296,15 @@ p.control-label{
     gap: 4px;
     height: 36px;
 }
-input[type="date"]{
+input{
     background: var(--fetch);
-    font-family: interMedium;
+    font-family: geistMonoBold;
     padding: 8px;
     color: var(--fetchText);
     height: 34px;
 }
 input.data-range:focus{
     outline: var(--dataActiveOutline);
-}
-input#countValue{
-    background: var(--fetch);
-    font-family: interMedium;
-    padding: 8px;
-    color: var(--fetchText);
-    height: 34px;
-}
-input#search-bar{
-    background: var(--fetch);
-    font-family: interMedium;
-    padding: 8px;
-    color: var(--fetchText);
-    height: 34px;
 }
 button.fetch-data{
     background: var(--fetch);
@@ -313,27 +315,6 @@ button.fetch-data{
     font-size: 20px;
     color: var(--fetchText);
     cursor: pointer;
-}
-button#search-button{
-    background: var(--fetch);
-    display: grid;
-    place-items: center;
-    aspect-ratio: 1;
-    height: 34px;
-    font-size: 20px;
-    color: var(--fetchText);
-    cursor: pointer;
-}
-button.apodPopupBtn[aria-toggle="open"]{
-    background: var(--fetch);
-    aspect-ratio: 1;
-    height: 34px;
-    color: var(--fetchText);
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    display: grid;
-    place-items: center;
 }
 .api-content{
     display: flex;
@@ -402,49 +383,63 @@ img.apod-img{
     // border-radius: inherit;
     width: 75vw;
 }
+img.historic-apod-img{
+    width: 75vw;
+}
 iframe{
     width: 100%;
     aspect-ratio: 16 / 9;
     display: none;
     grid-area: 1 / 1 / 2 / 2;
 }
-.apod-explan-popup{
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    place-items: center;
-    backdrop-filter: blur(14px) saturate(100%);
-    padding-inline: 8px;
+.data-table{
+    border: var(--dataTable);
 }
-.apod-explan-popup[aria-hidden="true"]{
-    display: none;
-}
-.apod-explan-popup[aria-hidden="false"]{
-    display: grid;
-}
-.apod-explan-container{
-    width: 66%;
-}
-button.apodPopupBtn[aria-toggle="close"]{
-    color: #a8a8a8;
-    display: grid;
-    place-items: center;
-    font-size: 1.5em;
-}
-p.apod-title{
-    font-size: 1.2em;
-    font-family: interMedium;
-    color: var(--title);
-    margin-bottom: 4px;
-    text-align: center;
-}
-
-.popup-header{
+.apod-info{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+}
+.img-data{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.data{
+    width: 100%;
+    text-align: center;
+    padding: 6px 0;
+    border-top: var(--dataTable);
+}
+.data:nth-of-type(2){
+    border-inline: var(--dataTable);
+}
+.apod-explanation{
+    padding: 6px 0;
+}
+p.data-label{
+    text-transform: uppercase;
+    text-align: center;
+    font-family: geistMonoMedium;
+    font-size: .9em;
+    color: var(--title);
+    padding-bottom: 6px;
+    padding-inline: 4px;
+    margin-bottom: 6px;
+    border-bottom: var(--dataTable);
+}
+p.apod-title, p.historic-apod-title{
+    text-align: center;
+    font-family: interMedium;
+    font-size: 1em;
+    color: var(--title);
+    border-bottom: var(--dataTable);
+    padding-bottom: 6px;
+}
+p.img-copyright, p.historic-img-copyright{
+    font-size: .8em;
+    font-family: geistMonoRegular;
+    color: var(--bodyText);
 }
 //-----------EXPLANATIONS----------//
 .explan-container{
@@ -460,10 +455,12 @@ p.explanation-title{
     color: var(--title);
     margin-bottom: 4px;
 }
-p.explanation{
+p.explanation, p.historic-explanation{
     font-size: 1em;
     font-family: interRegular;
     color: var(--bodyText);
+    text-align: center;
+    padding: 8px;
 }
 //-----------MARS ROVER----------//
 .rover-info{
@@ -499,7 +496,7 @@ footer{
     flex-direction: row;
     height: 100%;
     width: 100%;
-    padding: 5vh;
+    padding: 5vh 5vh 10vh 5vh;
     gap: 36px;
 }
 .site-info{
@@ -515,7 +512,6 @@ p.si-text{
 p.global-link-text{
     font-size: 1em;
     font-family: geistMonoRegular;
-    color: var(--bodyText);
 }
 //-----------MEDIA QUERIES----------//
 @media only screen and (min-width: 0px) and (max-width: 970px) {
@@ -534,7 +530,7 @@ p.global-link-text{
     }
     .dropdown-menu{
         position: fixed;
-        top: 50px;
+        top: 49px;
         left: 0;
         width: 100%;
         background: var(--header);
@@ -551,9 +547,29 @@ p.global-link-text{
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 600px) {
+    p.site-description{
+        font-size: 1.8em;
+    }
+    p.api-provider{
+        font-size: 1.2em;
+    }
+    h2{
+        font-size: 1.5em;
+    }
+    .hero[aria-page="rover"]{
+        background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-mars.webp);
+        background-position: 90% 50%;
+    }
     .footer-content{
         flex-direction: column;
         align-items: center;
+    }
+    p.si-text{
+        text-align: center;
+        width: 100%
+    }
+    li.link-list-item{
+        text-align: center;
     }
 }
 @media only screen and (min-width: 0px) and (max-width: 800px) {
@@ -589,6 +605,11 @@ p.global-link-text{
         width: 100%;
     }
     img.apod-img{
+        // border-radius: inherit;
+        width: 100%;
+        height: auto;
+    }
+    img.historic-apod-img{
         // border-radius: inherit;
         width: 100%;
         height: auto;

@@ -67,41 +67,23 @@
         <div class="hero" aria-page="home">
             <div class="title-description-wrapper">
                 <p class="site-description">A Space API Project</p>
-                <p class="site-description">API's provided by NASA, ESA, and Open Notify.</p>    
+                <p class="api-provider">API's provided by NASA, ESA, and Open Notify.</p>    
             </div>
         </div>
-        <main>
+        <main style="padding: 0;">
             <div class="main-content">
-                
+                <section class="site-introduction content-section">
+
+                </section>
                 <section class="home content-section">
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
+                    <a class="link" href="apod.html">
+                        <div class="home-nav apod-page">
+
                         </div>
                     </a>
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
-                        </div>
-                    </a>
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
-                        </div>
-                    </a>
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
-                        </div>
-                    </a>
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
-                        </div>
-                    </a>
-                    <a class="link">
-                        <div class="home-nav">
-                            <img src="bg/hubble.jpg" frameborder="0" alt="">
+                    <a class="link" href="rover.html">
+                        <div class="home-nav mrp-page">
+
                         </div>
                     </a>
                 </section>
@@ -112,7 +94,59 @@
             <div class="footer-content">
                 <div class="site-info">
                     <p class="si-text">INFO VIA <a href="https://api.nasa.gov" target="_blank" style="text-decoration: underline;">API.NASA.GOV</a></p>
-                    <p class="si-text">JAYDEN PRIESTLEY 2024</p>
+                    <p class="si-text"><a href="https://jaydenpriestley.vercel.app" target="_blank" style="text-decoration: underline;">JAYDEN PRIESTLEY 2024</a></p>
+                </div>
+                <div class="global-links">
+                    <ul class="global-link-list">
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">Home</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">APOD</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">Mars Rover Photos</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">EONET</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">SSD/CNEOS</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">SWDONKI</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">Mars Weather Service</p>
+                            </a>
+                        </li>
+                        <li class="link-list-item">
+                            <a href="#">
+                                <p class="global-link-text">NewsBoard</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="light-dark-mode">
+                    <button class="light-dark" onclick="enableLightMode()">
+                        <i class='bx bxs-sun'></i>
+                    </button>
+                    <button class="light-dark" onclick="disableLightMode()">
+                        <i class='bx bxs-moon' ></i>
+                    </button>
                 </div>
             </div>
         </footer>

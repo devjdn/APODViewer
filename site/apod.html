@@ -117,19 +117,6 @@
                         <h2>Astronomy Picture of the Day</h2>
                     </div>
                     <div class="apod-content api-content">
-                        <div class="api-controls">
-                            <div class="control-container">
-                                <p class="control-label">Select a date between 16 June 1995 to the present day</p>
-                                <div class="controls">
-                                    <div class="date-input input-row">
-                                        <input type="date" name="" value="2006-08-09">
-                                        <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
-                                        <button class="apodPopupBtn" aria-toggle="open"><i class='bx bxs-info-square' ></i></button>
-                                    </div>
-                                </div>
-                                <p class="apod-title"></p>
-                            </div>
-                        </div>
                         <div class="img-container">
                             <div class="spinner">
                                 <div class="spinner-items">
@@ -144,13 +131,77 @@
                             <img class="apod-img" src="" alt="">
                             <iframe src="" frameborder="0"></iframe>
                         </div>
-                        <div class="apod-explan-popup" id="apodPopupMenu" aria-hidden="true">
-                            <div class="apod-explan-container explan-container">
-                                <div class="popup-header">
-                                    <p class="explanation-title">APOD Explanation</p>
-                                    <button class="apodPopupBtn" aria-toggle="close"><i class='bx bx-x' ></i></button>
+                        <div class="data-table">
+                            <div class="apod-title-data">
+                                <p class="data-label" style="padding-top: 6px;">Image Title</p>
+                                <p class="apod-title"></p>
+                            </div>
+                            <div class="apod-explanation">
+                                <p class="data-label">Image Explanation</p>
+                                <p class="explanation"></p>
+                            </div>
+                            <div class="apod-info">
+                                <div class="img-data">
+                                    <div class="credit data">
+                                        <p class="data-label">Credit</p>
+                                        <p class="img-copyright"></p>
+                                    </div>
+                                    <div class="size data">
+                                        <p class="data-label">Image Size</p>
+                                        <p class="img-size"></p>
+                                    </div>
+                                    <div class="file data">
+                                        <p class="data-label">File Size</p>
+                                        <p class="img-file-size"></p>
+                                    </div>
                                 </div>
-                                <p class="apod-explanation explanation"></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="apod content-section" id="historicAPOD">
+                    <div class="section-title">
+                        <h2>APOD History</h2>
+                    </div>
+                    <div class="apod-content api-content">
+                        <div class="api-controls">
+                            <div class="control-container">
+                                <div class="controls">
+                                    <div class="date-input input-row">
+                                        <input type="date" name="" value="2011-11-11" min="1995-06-16">
+                                        <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-container">
+                            <img class="historic-apod-img" src="" alt="">
+                            <iframe class="historic-iframe" src="" frameborder="0"></iframe>
+                        </div>
+                        <div class="data-table">
+                            <div class="apod-title-data">
+                                <p class="data-label" style="padding-top: 6px;">Image Title</p>
+                                <p class="historic-apod-title"></p>
+                            </div>
+                            <div class="apod-explanation">
+                                <p class="data-label">Image Explanation</p>
+                                <p class="historic-explanation"></p>
+                            </div>
+                            <div class="apod-info">
+                                <div class="img-data">
+                                    <div class="credit data">
+                                        <p class="data-label">Credit</p>
+                                        <p class="historic-img-copyright"></p>
+                                    </div>
+                                    <div class="size data">
+                                        <p class="data-label">Image Size</p>
+                                        <p class="img-size"></p>
+                                    </div>
+                                    <div class="file data">
+                                        <p class="data-label">File Size</p>
+                                        <p class="img-file-size"></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -161,7 +212,7 @@
                     </div>
                     <div class="api-controls">
                         <div class="control-container">
-                            <p class="control-label">Select a value between 6 and 100 to choose the number of APODs displayed. Higher numbers may slow loading time, depending on internet speed and NASA's API traffic.</p>
+                            <p class="control-label">Select a value between 6 and 100 to choose the number of images displayed</p>
                             <div class="controls">
                                 <div class="count-input input-row">
                                     <input type="number" id="countValue" value="4" min="4" max="100">
@@ -180,7 +231,7 @@
             <div class="footer-content">
                 <div class="site-info">
                     <p class="si-text">INFO VIA <a href="https://api.nasa.gov" target="_blank" style="text-decoration: underline;">API.NASA.GOV</a></p>
-                    <p class="si-text">JAYDEN PRIESTLEY 2024</p>
+                    <p class="si-text"><a href="https://jaydenpriestley.vercel.app" target="_blank" style="text-decoration: underline;">JAYDEN PRIESTLEY 2024</a></p>
                 </div>
                 <div class="global-links">
                     <ul class="global-link-list">
@@ -237,7 +288,7 @@
             </div>
         </footer>
     </div>
-    <script src="js/api.js"></script>
+    <script src="js/apod-api.js"></script>
     <script src="js/appearance.js"></script>
 </body>
 </html>
