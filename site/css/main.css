@@ -48,6 +48,7 @@ a:hover {
 
 button {
   all: unset;
+  cursor: pointer;
 }
 
 img, picture, svg, video, canvas {
@@ -412,6 +413,27 @@ button.fetch-data {
   font-size: 20px;
   color: var(--fetchText);
   cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-btn {
+  display: grid;
+  place-items: center;
+}
+
+button.action-btn {
+  background: var(--fetch);
+  font-family: geistMonoBold;
+  padding-inline: 8px;
+  color: var(--fetchText);
+  height: 34px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
 .api-content {
