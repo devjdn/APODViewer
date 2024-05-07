@@ -68,6 +68,7 @@ body, html{
 :root{
     --bodyBackground: #050505;
     --header: #0f0f0f;
+    --intro: linear-gradient(to bottom, rgba(5, 5, 5, 0.6392156863), #050505), linear-gradient(to right, #ff840b, #9700bd);
     --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
     --popup: #050505;
     --footer: #070707;
@@ -88,6 +89,7 @@ body, html{
 .lightmode{
     --bodyBackground: #f1f1f1;
     --header: #ffffff;
+    --intro: linear-gradient(to bottom, rgba(255, 255, 255, 0.639), #f1f1f1), linear-gradient(to right, #ffbe0b, #7c0e97);
     --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
     --popup: #ececec;
     --footer: #ececec;
@@ -211,6 +213,9 @@ section.content-section{
 section.home{
     flex-direction: column;
     padding: 0;
+}
+section.site-introduction{
+   background: var(--intro);
 }
 section.apod{
     flex-direction: column;
