@@ -36,7 +36,7 @@ a:not([class]) {
 a {
   all: unset;
   cursor: pointer;
-  font-family: geistMonoMedium;
+  font-family: interMedium;
   color: var(--link);
 }
 
@@ -48,7 +48,6 @@ a:hover {
 
 button {
   all: unset;
-  cursor: pointer;
 }
 
 img, picture, svg, video, canvas {
@@ -65,6 +64,7 @@ input, button, textarea, select {
   font: inherit; /* Makes these elements inherit fonts */
   border: none;
   border-radius: 0;
+  cursor: pointer;
 }
 
 body, html {
@@ -77,8 +77,9 @@ body, html {
   --bodyBackground: #050505;
   --header: #0f0f0f;
   --intro: linear-gradient(to bottom, rgba(5, 5, 5, 0.6392156863), #050505), linear-gradient(to right, #ff840b, #9700bd);
+  --hero: linear-gradient(to bottom, rgba(5, 5, 5, 0.6392156863), #050505), linear-gradient(to right, #c60bff, #00bdb4);
   --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
-  --popup: #050505;
+  --info: #0f0f0f;
   --footer: #070707;
   --title: #cacaca;
   --lightDarkBtns: #ababab;
@@ -87,16 +88,16 @@ body, html {
   --fetchText: #e0e0e0;
   --link: #a8a8a8;
   --linkHover: #f3f3f3;
-  --dataTable: 1px solid #3f3f3f;
-  --dataActiveOutline: 1px solid #646464;
+  --dataTable: 1px solid #272727;
 }
 
 .lightmode {
   --bodyBackground: #f1f1f1;
   --header: #ffffff;
   --intro: linear-gradient(to bottom, rgba(255, 255, 255, 0.639), #f1f1f1), linear-gradient(to right, #ffbe0b, #7c0e97);
+  --hero: linear-gradient(to bottom, rgba(255, 255, 255, 0.639), #f1f1f1), linear-gradient(to right, #c60bff, #00bdb4);
   --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #ff6d0b;
-  --popup: #ececec;
+  --info: #ececec;
   --footer: #ececec;
   --title: #1b1b1b;
   --lightDarkBtns: #2b2b2b;
@@ -105,8 +106,7 @@ body, html {
   --fetchText: #e4e4e4;
   --link: #202020;
   --linkHover: #3d3d3d;
-  --dataTable: 1px solid #646464;
-  --dataActiveOutline: 1px solid #646464;
+  --dataTable: 1px solid #d8d8d8;
 }
 
 .page-content {
@@ -145,10 +145,6 @@ header {
   width: -moz-fit-content;
   width: fit-content;
   transition: all 0.1s;
-}
-
-p[id=newsboard] {
-  color: #ff6d0b;
 }
 
 .title {
@@ -191,21 +187,7 @@ button.light-dark {
   place-items: center;
   padding: 32px;
   height: 300px;
-}
-
-.hero[aria-page=home] {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-home.png);
-  background-position: 100% 50%;
-  margin-bottom: 48px;
-}
-
-.hero[aria-page=apod] {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-apod.jpg);
-}
-
-.hero[aria-page=rover] {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-mars.webp);
-  background-position: 100% 50%;
+  background: var(--hero);
 }
 
 main {
@@ -238,7 +220,7 @@ section.home {
 }
 
 section.site-introduction {
-  background: var(--intro);
+  background: var(--hero);
 }
 
 section.apod {
@@ -259,7 +241,7 @@ h1 {
 p.site-description {
   font-size: 2.5em;
   font-family: interBold;
-  color: #f6f6f6;
+  color: var(--title);
   letter-spacing: -0.03em;
   text-align: center;
 }
@@ -294,7 +276,7 @@ p.intro-description {
 
 p.si-text {
   font-size: 1em;
-  font-family: geistMonoRegular;
+  font-family: interRegular;
   color: var(--link);
 }
 
@@ -359,14 +341,6 @@ p.page-title {
   background-repeat: no-repeat;
 }
 
-.swdonki-page {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/swdonki.webp);
-}
-
-.mws-page {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/mws.jpg);
-}
-
 .api-controls {
   display: flex;
   flex-direction: column;
@@ -374,8 +348,8 @@ p.page-title {
 }
 
 p.control-label {
-  font-size: 0.8em;
-  font-family: geistMonoRegular;
+  font-size: 1em;
+  font-family: interRegular;
   color: var(--bodyText);
 }
 
@@ -400,7 +374,7 @@ p.control-label {
 
 input {
   background: var(--fetch);
-  font-family: geistMonoBold;
+  font-family: interBold;
   padding: 8px;
   color: var(--fetchText);
   height: 34px;
@@ -433,7 +407,7 @@ button.fetch-data {
 
 button.action-btn {
   background: var(--fetch);
-  font-family: geistMonoBold;
+  font-family: interBold;
   padding-inline: 8px;
   color: var(--fetchText);
   height: 34px;
@@ -513,7 +487,7 @@ button.action-btn {
 p.spinner-text {
   font-size: 1em;
   color: var(--title);
-  font-family: geistMonoRegular;
+  font-family: interRegular;
 }
 
 img.apod-img {
@@ -532,46 +506,20 @@ iframe {
 }
 
 .data-table {
-  border: var(--dataTable);
-}
-
-.apod-info {
+  width: 100%;
+  padding: 6px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.img-data {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.data {
-  width: 100%;
-  text-align: center;
-  padding: 6px 0;
-  border-top: var(--dataTable);
-}
-
-.data:nth-of-type(2) {
-  border-inline: var(--dataTable);
-}
-
-.apod-explanation {
-  padding: 6px 0;
+  gap: 6px;
+  border-radius: 8px;
+  border: var(--dataTable);
+  background: var(--info);
 }
 
 p.data-label {
-  text-transform: uppercase;
-  text-align: center;
-  font-family: geistMonoMedium;
+  font-family: interMedium;
   font-size: 0.9em;
   color: var(--title);
-  padding-bottom: 6px;
-  padding-inline: 4px;
-  margin-bottom: 6px;
-  border-bottom: var(--dataTable);
 }
 
 p.apod-title, p.historic-apod-title {
@@ -579,14 +527,6 @@ p.apod-title, p.historic-apod-title {
   font-family: interMedium;
   font-size: 1em;
   color: var(--title);
-  border-bottom: var(--dataTable);
-  padding-bottom: 6px;
-}
-
-p.img-copyright, p.historic-img-copyright {
-  font-size: 0.8em;
-  font-family: geistMonoRegular;
-  color: var(--bodyText);
 }
 
 .explan-container {
@@ -595,13 +535,6 @@ p.img-copyright, p.historic-img-copyright {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-p.explanation-title {
-  font-size: 1.2em;
-  font-family: interMedium;
-  color: var(--title);
-  margin-bottom: 4px;
 }
 
 p.explanation, p.historic-explanation {
@@ -672,7 +605,7 @@ p.si-text {
 
 p.global-link-text {
   font-size: 1em;
-  font-family: geistMonoRegular;
+  font-family: interRegular;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 970px) {
@@ -717,10 +650,6 @@ p.global-link-text {
   }
   h2 {
     font-size: 1.5em;
-  }
-  .hero[aria-page=rover] {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #050505), url(../bg/hero-mars.webp);
-    background-position: 90% 50%;
   }
   .apod-page {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9333333333)), url(../bg/hubble.jpg);
@@ -804,9 +733,5 @@ p.global-link-text {
   }
   .explan-container {
     width: 100%;
-  }
-  p.explanation {
-    font-size: 0.9em;
-    color: var(--bodyText);
   }
 }/*# sourceMappingURL=main.css.map */
