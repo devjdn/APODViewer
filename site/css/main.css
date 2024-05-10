@@ -191,9 +191,18 @@ header .header-content .header-name .logo #mdi-space-station {
 
 .to-top-btn {
   display: none;
+  background: var(--bodyBackground);
   position: fixed;
-  top: calc(100svh - 48px);
+  top: calc(100vh - 48px);
   right: 16px;
+  border: var(--fetch) 1px solid;
+  align-items: center;
+}
+.to-top-btn p.to-top-label {
+  font-size: 1em;
+  font-family: interSemiBold;
+  color: var(--bodyText);
+  padding-inline: 6px;
 }
 .to-top-btn button.to-top {
   display: grid;
@@ -241,13 +250,10 @@ main .main-content {
 
 section.content-section {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   width: 100%;
   padding-inline: 15vw;
-}
-
-section.apod {
-  flex-direction: column;
 }
 
 h1 {
@@ -409,6 +415,47 @@ h2 {
   padding: 8px;
 }
 
+.info-accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.info-accordion .accordion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--info);
+  height: 36px;
+  border-bottom: var(--dataTable);
+}
+.info-accordion .accordion p.question {
+  font-size: 1em;
+  font-family: interMedium;
+  color: var(--bodyText);
+}
+.info-accordion .accordion i {
+  font-size: 1.25em;
+  color: var(--bodyText);
+}
+.info-accordion .accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  padding-inline: 16px;
+}
+.info-accordion .accordion-panel p {
+  font-size: 1em;
+  color: var(--bodyText);
+  font-family: interRegular;
+}
+
+.accordion.active i {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
 footer {
   height: -moz-fit-content;
   height: fit-content;
@@ -472,6 +519,9 @@ footer .footer-content .global-links p.global-link-text {
   }
   .dropdown-menu[aria-hidden=true] {
     height: 0;
+  }
+  .to-top-btn {
+    top: calc(100svh - 48px);
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 600px) {

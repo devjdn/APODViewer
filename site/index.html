@@ -67,6 +67,7 @@
             </div>
         </header>
         <div class="to-top-btn" id="toTop">
+            <p class="to-top-label">Back to top</p>
             <button class="to-top" onclick="topFunction()">
                 <i class='bx bx-up-arrow-alt'></i>
             </button>
@@ -160,7 +161,7 @@
                     </div>
                     <div class="api-controls">
                         <div class="control-container">
-                            <p class="control-label">Select a value between 6 and 100 to choose the number of images displayed</p>
+                            <p class="control-label">Select a value between 4 and 100 to choose the number of images displayed</p>
                             <div class="controls">
                                 <div class="count-input input-row">
                                     <input type="number" id="countValue" value="4" min="4" max="100">
@@ -171,6 +172,27 @@
                     </div>
                     <div class="other-apod-imgs" id="otherApods">
 
+                    </div>
+                </section>
+                <section class="information content-section" id="info">
+                    <div class="section-title">
+                        <h2>Information</h2>
+                    </div>
+                    <div class="info-accordion">
+                        <button class="accordion"><p class="question">What can I do on APODViewer?</p> <i class='bx bx-down-arrow-alt'></i></button>
+                        <div class="accordion-panel">
+                          <p class="question-answer">APODViewer allows you to view information and images based off of NASA's Astronomy Picture of the Day API. This includes: Viewing today's APOD, using our date picker to view previous APODs, and using a number value selector to randomly generate between 4 and 100 of NASA's APODs.</p>
+                        </div>
+                        
+                        <button class="accordion"><p class="question">Why was APODViewer built?</p> <i class='bx bx-down-arrow-alt'></i></button>
+                        <div class="accordion-panel">
+                          <p class="question-answer">I believe everyone should be able to have easy access to the array of incredible images of our universe that space agencies and independent astrophotographers take, and these simple API calls formatted into an easy to read layout was the way I thought would be best.</p>
+                        </div>
+                        
+                        <button class="accordion"><p class="question">Who created APODViewer?</p> <i class='bx bx-down-arrow-alt'></i></button>
+                        <div class="accordion-panel">
+                          <p class="question-answer">Built with love by Jayden Priestley.</p>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -199,7 +221,7 @@
                             </a>
                         </li>
                         <li class="link-list-item">
-                            <a href="#">
+                            <a href="#info">
                                 <p class="global-link-text">Information</p>
                             </a>
                         </li>

@@ -18,7 +18,7 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    toTop.style.display = "block";
+    toTop.style.display = "flex";
   } else {
     toTop.style.display = "none";
   }
@@ -28,4 +28,21 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.style.padding = "0px 16px";
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "50px";
+      panel.style.padding = "16px";
+    }
+  });
 }
