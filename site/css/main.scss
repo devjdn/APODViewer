@@ -127,6 +127,22 @@ header{
         align-items: center;
         height: 100%;
         gap: 32px;
+
+        .header-name{
+            display: flex;
+            gap: 2px;
+            align-items: center;
+
+            .logo{
+                height: 30px;
+                aspect-ratio: 1;
+                #mdi-space-station{
+                    height: 100%;
+                    width: auto;
+                    fill: var(--fetch);
+                }
+            }
+        }
     }
 }
 
@@ -172,7 +188,7 @@ header{
 .to-top-btn{
     display: none;
     position: fixed;
-    bottom: 16px;
+    top: calc(100svh - 48px);
     right: 16px;
 
     button.to-top{
@@ -210,7 +226,6 @@ main{
 
     .main-content{
         display: flex;
-        gap: 48px;
         flex-direction: column;
         align-items: center;
     }
@@ -228,103 +243,22 @@ section.content-section{
     width: 100%;
     padding-inline: 15vw;
 }
-section.home{
-    flex-direction: column;
-    padding: 0;
-}
-section.site-introduction{
-   background: var(--intro);
-}
-section.apod{
-    flex-direction: column;
-}
-section.rover{
+section.apod {
     flex-direction: column;
 }
 //-----------TEXT----------//
 h1{
     font-size: 1.5em;
-    font-family: interMedium;
+    font-family: interBold;
     color: var(--title);
     letter-spacing: -.03em;
 }
-p.api-provider{
-    font-family: interMedium;
-    color: #f6f6f6;
-    letter-spacing: -.03em;
-    text-align: center;
-}
-p.site-intro-text{
-    font-family: interMedium;
-    font-size: 1.3em;
-    color: var(--heroText);
-    letter-spacing: -.03em;
-    text-align: center;
-}
-h2{
+h2 {
     font-size: 1.75em;
-    font-family: interMedium;
+    font-family: interSemiBold;
     color: var(--title);
     letter-spacing: -.02em;
-}
-p.intro-description{
-    font-size: 1em;
-    font-family: interRegular;
-    color: var(--bodyText);
-}
-
-//-----------HOME----------//
-.home-nav{
-    height: 350px;
-    width: 100%;
-    gap: 16px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    place-items: end left;
-    padding: 16px;
-}
-article{
-    height: 350px;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    padding: 16px;
-}
-.home-nav-text{
-    display: flex;
-    gap: 4px;
-    align-items:baseline;
-}
-.home-nav i{
-    color: #ff6d0b;
-    font-size: 1.75em;
-}
-p.page-title{
-    font-size: 1.75em;
-    font-family: interMedium;
-    color: #fff;
-    letter-spacing: -.02em;
-}
-.apod-page{
-    background: linear-gradient(to bottom, #00000000, #000000ee), url(../bg/hubble.jpg);
-    background-position: 100% 50%;
-}
-.mrp-page{
-    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-mars.webp);
-    background-position: 100% 50%;
-}
-.eonet-page{
-    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/earth.jpg);
-    background-position: 30% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.ssd-cneos-page{
-    background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/ssd-cneos.jpg);
-    background-position: 30% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    margin-top: 75px;
 }
 //-----------APODS----------//
 .api-controls{
@@ -479,30 +413,6 @@ p.page-title{
         padding: 8px;
     }
 }
-//-----------MARS ROVER----------//
-.rover-info{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-li.date-container{
-    display: flex;
-    gap: 4px;
-    list-style-type: disc;
-}
-p.date-title{
-    font-size: .9em;
-    font-family: interMedium;
-    color: var(--title);
-}
-p.rover-earth-date, p.rover-launch-date, p.rover-landing-date{
-    font-size: .9em;
-    font-family: interMedium;
-    color: var(--bodyText);
-}
-#roverPhoto{
-    width: 100%;
-}
 //-----------FOOTER----------//
 footer{
     height: fit-content;
@@ -565,7 +475,7 @@ footer{
         padding-inline: 16px;
     }
     .dropdown-menu[aria-hidden="false"]{
-        height: calc(100vh - 50px);
+        height: fit-content;
         padding: 16px;
     }
     .dropdown-menu[aria-hidden="true"]{
@@ -582,23 +492,17 @@ footer{
     h2{
         font-size: 1.5em;
     }
-    .apod-page{
-        background: linear-gradient(to bottom, #00000000, #000000ee), url(../bg/hubble.jpg);
-        background-position: 30% 50%;
-    }
-    .mrp-page{
-        background: linear-gradient(to bottom, #ffffff00, #050505), url(../bg/hero-mars.webp);
-        background-position: 90% 50%;
-    }
     p.page-title{
         font-size: 1.3em;
     }
     .home-nav i{
         font-size: 1.3em;
     }
-    .footer-content{
-        flex-direction: column;
-        align-items: center;
+    footer{
+        .footer-content{
+            flex-direction: column;
+            align-items: center;
+        }
     }
     p.si-text{
         text-align: center;
@@ -655,18 +559,9 @@ footer{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
     }
-    .rover-content{
-        flex-direction: column-reverse;
-    }
     .img-container{
         width: 100%;
         max-width: 100%;
-    }
-    .apod-explan-popup{
-        height: 100dvh;
-    }
-    .explan-container{
-        width: 100%;
     }
 }
 @media only screen and (min-width: 1400px) and (max-width: 3000px) {
