@@ -99,7 +99,7 @@ body, html {
   --info: #ececec;
   --footer: #ececec;
   --title: #1b1b1b;
-  --heroText: #1d1d1da9;
+  --heroText: #ffffffcc;
   --lightDarkBtns: #2b2b2b;
   --bodyText: #202020;
   --highlightedText: #1b1b1b;
@@ -267,7 +267,7 @@ p.api-provider {
 p.site-intro-text {
   font-family: interMedium;
   font-size: 1.3em;
-  color: var(--title);
+  color: var(--heroText);
   letter-spacing: -0.03em;
   text-align: center;
 }
@@ -373,10 +373,11 @@ p.page-title {
   height: 36px;
 }
 .api-controls .control-container .controls .input-row input {
-  background: var(--fetch);
-  font-family: interBold;
+  background: var(--info);
+  border: var(--fetch) 1px solid;
+  font-family: interRegular;
   padding: 8px;
-  color: var(--fetchText);
+  color: var(--bodyText);
   height: 34px;
 }
 .api-controls .control-container .controls .input-row input.data-range:focus {
