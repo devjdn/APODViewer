@@ -453,12 +453,6 @@ p.control-label{
         transition: all .2s ease-in-out;
         width: 100%;
         padding-inline: 16px;
-
-        p{
-            font-size: 1em;
-            color: var(--bodyText);
-            font-family: interRegular;
-        }
     }
 }
 .accordion.active i{

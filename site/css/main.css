@@ -446,11 +446,6 @@ p.control-label {
   width: 100%;
   padding-inline: 16px;
 }
-.info-accordion .accordion-panel p {
-  font-size: 1em;
-  color: var(--bodyText);
-  font-family: interRegular;
-}
 
 .accordion.active i {
   transform: rotate(180deg);
