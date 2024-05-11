@@ -37,10 +37,10 @@
                 </div>
                 <div class="page-link-container">
                     <div class="page-links" id="page-links">
-                        <a href="#apod"><div class="link"><p class="link-text">Today's APOD</p></div></a>
+                        <a href="#apod"><div class="link"><p class="link-text">Today's Picture</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
-                        <a href="#history"><div class="link"><p class="link-text">Historical APODs</p></div></a>
+                        <a href="#history"><div class="link"><p class="link-text">Past APODs</p></div></a>
                     </div>
                     <div class="page-links" id="page-links">
                         <a href="#generator"><div class="link"><p class="link-text">APOD Generator</p></div></a>
@@ -75,10 +75,10 @@
         <div class="dropdown-menu" id="dropdownMenu" aria-hidden="true">
             <div class="page-link-container">
                 <div class="page-links" id="page-links">
-                    <a href="#apod"><div class="link"><p class="link-text">Today's APOD</p></div></a>
+                    <a href="#apod"><div class="link"><p class="link-text">Today's Picture</p></div></a>
                 </div>
                 <div class="page-links" id="page-links">
-                    <a href="#history"><div class="link"><p class="link-text">Historical APODs</p></div></a>
+                    <a href="#history"><div class="link"><p class="link-text">Past APODs</p></div></a>
                 </div>
                 <div class="page-links" id="page-links">
                     <a href="#generator"><div class="link"><p class="link-text">APOD Generator</p></div></a>
@@ -96,58 +96,72 @@
                 </div>
             </div>
         </div>
-        <!--  -->
+        <div class="hero" aria-page="apod">
+            <div class="title-description-wrapper">
+                <p class="site-description">Astronomy Picture of the Day</p>
+            </div>
+        </div>
         <main>
             <div class="main-content">
                 
                 <section class="apod content-section" id="apod">
-                    <div class="section-title">
-                        <h2>Astronomy Picture of the Day</h2>
-                    </div>
                     <div class="apod-content api-content">
-                        <div class="img-container">
-                            <div class="spinner">
-                                <div class="spinner-items">
-                                    <div class="spinner-animation">
-                                        <div class="spinner-icon">
-                                            <i class='bx bx-loader'></i>
-                                        </div>
-                                        <p class="spinner-text">Loading API data...</p>
-                                    </div>
-                                </div>
+                        <div class="image-info">
+                            <div class="section-title desktop">
+                                <h2>Today's Picture</h2>
                             </div>
-                            <img class="apod-img" src="" alt="">
-                            <iframe src="" frameborder="0"></iframe>
-                        </div>
-                        <div class="data-table">
                             <p class="apod-title"></p>
                             <p class="explanation"></p>
+                        </div>
+                        <div class="media-container">
+                            <div class="section-title mobile">
+                                <h2>Today's Picture</h2>
+                            </div>
+                            <div class="img-container">
+                                <div class="spinner">
+                                    <div class="spinner-items">
+                                        <div class="spinner-animation">
+                                            <div class="spinner-icon">
+                                                <i class='bx bx-loader'></i>
+                                            </div>
+                                            <p class="spinner-text">Loading API data...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img class="apod-img" src="" alt="">
+                                <iframe src="" frameborder="0"></iframe>
+                            </div>
                         </div>
                     </div>
                 </section>
                 <section class="apod content-section" id="history">
-                    <div class="section-title">
-                        <h2>Historic APODs</h2>
-                    </div>
-                    <div class="api-controls">
-                        <div class="control-container">
-                            <p class="control-label">Select a date in the input below</p>
-                            <div class="controls">
-                                <div class="date-input input-row">
-                                    <input type="date" name="" value="2011-11-11" min="1995-06-16">
-                                    <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
+                    <div class="apod-content api-content">
+                        <div class="image-info">
+                            <div class="section-title desktop">
+                                <h2>Past APODs</h2>
+                            </div>
+                            <p class="past-apod-title"></p>
+                            <p class="past-explanation"></p>
+                        </div>
+                        <div class="media-container">
+                            <div class="section-title mobile">
+                                <h2>Past APODs</h2>
+                            </div>
+                            <div class="api-controls">
+                                <div class="control-container">
+                                    <p class="control-label">Select Date:</p>
+                                    <div class="controls">
+                                        <div class="date-input input-row">
+                                            <input type="date" name="" value="2011-11-11" min="1995-06-16">
+                                            <button class="fetch-apod fetch-data"><i class='bx bx-transfer'></i></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="apod-content api-content">
-                        <div class="img-container">
-                            <img class="historic-apod-img" src="" alt="">
-                            <iframe class="historic-iframe" src="" frameborder="0"></iframe>
-                        </div>
-                        <div class="data-table">
-                            <p class="historic-apod-title"></p>
-                            <p class="historic-explanation"></p>
+                            <div class="img-container">
+                                <img class="past-apod-img" src="" alt="">
+                                <iframe class="past-iframe" src="" frameborder="0"></iframe>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -203,12 +217,12 @@
                     <ul class="global-link-list">
                         <li class="link-list-item">
                             <a href="#apod">
-                                <p class="global-link-text">Today's APOD</p>
+                                <p class="global-link-text">Today's Picture</p>
                             </a>
                         </li>
                         <li class="link-list-item">
                             <a href="#history">
-                                <p class="global-link-text">Historic APODs</p>
+                                <p class="global-link-text">Past APODs</p>
                             </a>
                         </li>
                         <li class="link-list-item">
@@ -233,11 +247,6 @@
                 </div>
             </div>
         </footer>
-        <div class="hero" aria-page="apod">
-            <div class="title-description-wrapper">
-                <p class="site-description">Astronomy Picture of the Day</p>
-            </div>
-        </div>
     </div>
     <script src="js/apod-api.js"></script>
     <script src="js/appearance.js"></script>

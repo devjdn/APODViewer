@@ -39,24 +39,24 @@ function fetchHistoryApod(){
     const choice = document.querySelector('input').value;
     console.log(choice);
 
-    const historicApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
+    const pastApodUrl = `https://api.nasa.gov/planetary/apod?api_key=8p7wu7IiHjpbujhNGUIRWU8QgAOORkuvVSFWxBEV&date=${choice}`;
 
-    fetch(historicApodUrl)
+    fetch(pastApodUrl)
     .then(res => res.json())
     .then(data => {
         console.log(data);
         if (data.media_type === 'image') {
-            document.querySelector('.historic-apod-img').src = data.hdurl;
-            document.querySelector('.historic-iframe').style.display = 'none';
-            document.querySelector('.historic-apod-img').style.display = 'block';
+            document.querySelector('.past-apod-img').src = data.hdurl;
+            document.querySelector('.past-iframe').style.display = 'none';
+            document.querySelector('.past-apod-img').style.display = 'block';
         } else if (data.media_type === 'video') {
-            document.querySelector('.historic-iframe').src = data.url;
-            document.querySelector('.historic-apod-img').style.display = 'none';
-            document.querySelector('.historic-iframe').style.display = 'block';
+            document.querySelector('.past-iframe').src = data.url;
+            document.querySelector('.past-apod-img').style.display = 'none';
+            document.querySelector('.past-iframe').style.display = 'block';
         }
-        document.querySelector('.historic-explanation').innerText = data.explanation;
-        document.querySelector('.historic-img-copyright').innerText = data.copyright;
-        document.querySelector('.historic-apod-title').innerText = data.title;
+        document.querySelector('.past-explanation').innerText = data.explanation;
+        document.querySelector('.past-img-copyright').innerText = data.copyright;
+        document.querySelector('.past-apod-title').innerText = data.title;
     })
     .catch(err => {
         console.log(`error ${err}`);
