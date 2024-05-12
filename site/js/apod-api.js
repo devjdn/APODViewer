@@ -18,7 +18,6 @@ function getFetch(){
             document.querySelector('iframe').style.display = 'block';
         }
         document.querySelector('.explanation').innerText = data.explanation;
-        document.querySelector('.img-copyright').innerText = data.copyright;
         document.querySelector('.apod-title').innerText = data.title;
         // Hide loading spinner after receiving response
         spinner.style.display = 'none';
@@ -55,7 +54,6 @@ function fetchHistoryApod(){
             document.querySelector('.past-iframe').style.display = 'block';
         }
         document.querySelector('.past-explanation').innerText = data.explanation;
-        document.querySelector('.past-img-copyright').innerText = data.copyright;
         document.querySelector('.past-apod-title').innerText = data.title;
     })
     .catch(err => {

@@ -36,14 +36,13 @@ a:not([class]) {
 a {
   all: unset;
   cursor: pointer;
-  font-family: interMedium;
+  font-family: interSemiBold;
   color: var(--link);
 }
 
 a:hover {
-  -webkit-text-decoration: underline #ff6d0b;
-          text-decoration: underline #ff6d0b;
-  color: var(--linkHover);
+  -webkit-text-decoration: underline #130bff;
+          text-decoration: underline #130bff;
 }
 
 button {
@@ -76,33 +75,24 @@ body, html {
 :root {
   --bodyBackground: #050505;
   --header: #050505;
-  --intro: linear-gradient(to bottom, rgba(5, 5, 5, 0.6392156863), var(--bodyBackground)), linear-gradient(to right, #7fff00,#ff00ff,#7fff00);
-  --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #1c1c1c;
+  --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #130bff;
   --info: #0f0f0f;
   --footer: #070707;
   --title: #cacaca;
-  --heroText: #cacacaa3;
-  --lightDarkBtns: #ababab;
+  --lightDarkBtns: #f2f2f2;
   --bodyText: #e4e4e4;
   --fetchText: #e0e0e0;
-  --link: #a8a8a8;
-  --linkHover: #f3f3f3;
+  --link: #f2f2f2;
+  --linkHover: #ff6d0b;
+  --accordion: #1e1e1e 1px solid;
 }
 
 .lightmode {
   --bodyBackground: #f1f1f1;
-  --header: #f1f1f1;
-  --intro: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bodyBackground)), linear-gradient(to right, #7fff00,#ff00ff,#7fff00);
-  --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #dddddd;
   --info: #ececec;
-  --footer: #ececec;
   --title: #1b1b1b;
-  --heroText: #ffffffa0;
-  --lightDarkBtns: #2b2b2b;
   --bodyText: #202020;
-  --fetchText: #2a2a2a;
-  --link: #202020;
-  --linkHover: #3d3d3d;
+  --accordion: #c2c2c2 1px solid;
 }
 
 .page-content {
@@ -110,10 +100,35 @@ body, html {
   width: 100%;
 }
 
+h1 {
+  font-size: 1.5em;
+  font-family: interBold;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 2.75em;
+  font-family: interSemiBold;
+  color: var(--title);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+p {
+  font-size: 1em;
+  font-family: interRegular;
+  color: var(--bodyText);
+}
+
+p.control-label {
+  font-family: interSemiBold;
+}
+
 header {
-  height: 50px;
+  height: 75px;
   background: var(--header);
-  padding-inline: 16px;
+  padding-inline: 32px;
   -webkit-backdrop-filter: blur(24px) saturate(100%);
           backdrop-filter: blur(24px) saturate(100%);
 }
@@ -131,13 +146,11 @@ header .header-content .header-name {
   align-items: center;
 }
 header .header-content .header-name .logo {
-  height: 30px;
+  height: 42px;
   aspect-ratio: 1;
 }
 header .header-content .header-name .logo #mdi-space-station {
-  height: 100%;
-  width: auto;
-  fill: #3c42f5;
+  fill: #130bff;
 }
 
 .page-link-container {
@@ -191,6 +204,7 @@ header .header-content .header-name .logo #mdi-space-station {
   right: 16px;
   border: var(--fetch) 1px solid;
   align-items: center;
+  z-index: 10000000000000000;
 }
 .to-top-btn p.to-top-label {
   font-family: interSemiBold;
@@ -207,22 +221,26 @@ header .header-content .header-name .logo #mdi-space-station {
 }
 
 .hero {
+  background: url(../bg/northern-lights.jpg);
   background-size: cover;
   background-position: 100% 40%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  place-items: center;
+  place-items: center left;
   padding: 32px;
-  height: 300px;
-  background: var(--intro);
+  height: 400px;
 }
-.hero p.site-description {
+.hero p.site-title {
   font-size: 2.5em;
   font-family: interBold;
-  color: var(--heroText);
+  color: #fff;
   letter-spacing: -0.03em;
-  text-align: center;
+}
+.hero p.site-description {
+  font-size: 1.5em;
+  color: #fff;
+  letter-spacing: -0.03em;
 }
 
 main {
@@ -240,7 +258,7 @@ section {
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  padding-inline: 5vw;
+  padding: 36px 0;
 }
 
 .section-title {
@@ -251,30 +269,6 @@ section {
 
 .section-title.mobile {
   display: none;
-}
-
-h1 {
-  font-size: 1.5em;
-  font-family: interBold;
-  color: var(--title);
-  letter-spacing: -0.03em;
-}
-
-h2 {
-  font-size: 2.75em;
-  font-family: interSemiBold;
-  color: var(--title);
-  letter-spacing: -0.02em;
-}
-
-p {
-  font-size: 1em;
-  font-family: interRegular;
-  color: var(--bodyText);
-}
-
-p.control-label {
-  font-family: interSemiBold;
 }
 
 .api-controls {
@@ -325,10 +319,11 @@ p.control-label {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
   place-items: flex-start;
-  gap: 36px;
+  gap: 72px;
 }
 .api-content .media-container {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -407,6 +402,8 @@ p.control-label {
   gap: 16px;
 }
 .image-info p.apod-title, .image-info p.past-apod-title {
+  font-size: 1.25em;
+  font-family: interSemiBold;
   color: var(--title);
 }
 .image-info p.explanation, .image-info p.past-explanation {
@@ -423,9 +420,8 @@ p.control-label {
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
-  background: var(--info);
   height: 36px;
-  border-bottom: var(--dataTable);
+  border-bottom: var(--accordion);
 }
 .info-accordion .accordion p.question {
   font-family: interMedium;
@@ -469,13 +465,6 @@ footer .footer-content .site-info {
 footer .footer-content .site-info p.si-text {
   color: var(--link);
 }
-footer .footer-content .global-links {
-  width: 100%;
-}
-footer .footer-content .global-links p.global-link-text {
-  font-size: 1em;
-  font-family: interRegular;
-}
 
 @media only screen and (min-width: 0px) and (max-width: 1000px) {
   body, html {
@@ -488,13 +477,10 @@ footer .footer-content .global-links p.global-link-text {
   }
   h2 {
     font-size: 2em;
+    margin-bottom: 0;
   }
   header {
-    height: 50px;
-    background: var(--header);
     padding-inline: 16px;
-    -webkit-backdrop-filter: blur(24px) saturate(100%);
-            backdrop-filter: blur(24px) saturate(100%);
   }
   header .page-link-container {
     display: none;
@@ -504,6 +490,22 @@ footer .footer-content .global-links p.global-link-text {
   }
   header .mobile-nav-dropdown .dropdown svg {
     fill: var(--title);
+  }
+  .main-content {
+    padding-inline: 12px;
+  }
+  .hero {
+    place-items: center;
+  }
+  .hero p.site-title {
+    font-size: 1.5em !important;
+    text-align: center;
+  }
+  .hero p.site-description {
+    font-size: 1em;
+    color: #fff;
+    letter-spacing: -0.03em;
+    text-align: center;
   }
   .api-content {
     display: flex;

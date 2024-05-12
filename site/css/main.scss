@@ -30,12 +30,11 @@ a:not([class]){
 a{
     all: unset;
     cursor: pointer;
-    font-family: interMedium;
+    font-family: interSemiBold;
     color: var(--link);
 }
 a:hover{
-    text-decoration: underline #ff6d0b;
-    color: var(--linkHover);
+    text-decoration: underline #130bff;
 }
 button{
     all: unset;
@@ -68,46 +67,62 @@ body, html{
 :root{
     --bodyBackground: #050505;
     --header: #050505;
-    --intro: linear-gradient(to bottom, rgba(5, 5, 5, 0.6392156863), var(--bodyBackground)), linear-gradient(to right, #7fff00,#ff00ff,#7fff00);
-    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #1c1c1c;
+    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #130bff;
     --info: #0f0f0f;
     --footer: #070707;
 
 
     --title: #cacaca;
-    --heroText: #cacacaa3;
-    --lightDarkBtns: #ababab;
+    --lightDarkBtns: #f2f2f2;
     --bodyText: #e4e4e4;
     --fetchText: #e0e0e0;
-    --link: #a8a8a8;
-    --linkHover: #f3f3f3;
+    --link: #f2f2f2;
+    --linkHover: #ff6d0b;
+
+    --accordion: #1e1e1e 1px solid;
 }
 .lightmode{
     --bodyBackground: #f1f1f1;
-    --header: #f1f1f1;
-    --intro: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--bodyBackground)), linear-gradient(to right, #7fff00,#ff00ff,#7fff00);
-    --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #dddddd;
     --info: #ececec;
-    --footer: #ececec;
 
 
     --title: #1b1b1b;
-    --heroText: #ffffffa0;
-    --lightDarkBtns: #2b2b2b;
     --bodyText: #202020;
-    --fetchText: #2a2a2a;
-    --link: #202020;
-    --linkHover: #3d3d3d;
+
+    --accordion: #c2c2c2 1px solid;
 }
 .page-content{
     height: 100%;
     width: 100%;
 }
+//-----------TEXT----------//
+h1{
+    font-size: 1.5em;
+    font-family: interBold;
+    color: #fff;
+    letter-spacing: -.03em;
+}
+h2 {
+    font-size: 2.75em;
+    font-family: interSemiBold;
+    color: var(--title);
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+p{
+    font-size: 1em;
+    font-family: interRegular;
+    color: var(--bodyText);
+}
+p.control-label{
+    font-family: interSemiBold;
+
+}
 //-----------HEADER----------//
 header{
-    height: 50px;
+    height: 75px;
     background: var(--header);
-    padding-inline: 16px;
+    padding-inline: 32px;
     backdrop-filter: blur(24px) saturate(100%);
 
     .header-content{
@@ -124,12 +139,10 @@ header{
             align-items: center;
 
             .logo{
-                height: 30px;
+                height: 42px;
                 aspect-ratio: 1;
                 #mdi-space-station{
-                    height: 100%;
-                    width: auto;
-                    fill: #3c42f5;
+                    fill: #130bff;
                 }
             }
         }
@@ -183,6 +196,7 @@ header{
     right: 16px;
     border: var(--fetch) 1px solid;
     align-items: center;
+    z-index: 10000000000000000;
 
     p.to-top-label{
         font-family: interSemiBold;
@@ -201,22 +215,26 @@ header{
 }
 //-----------MAIN----------//
 .hero{
+    background: url(../bg/northern-lights.jpg);
     background-size: cover;
     background-position: 100% 40%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    place-items: center;
+    place-items: center left;
     padding: 32px;
-    height: 300px;
-    background: var(--intro);
+    height: 400px;
 
-    p.site-description{
+    p.site-title{
         font-size: 2.5em;
         font-family: interBold;
-        color: var(--heroText);
+        color: #fff;
         letter-spacing: -.03em;
-        text-align: center;
+    }
+    p.site-description{
+        font-size: 1.5em;
+        color: #fff;
+        letter-spacing: -.03em;
     }
 }
 main{
@@ -236,7 +254,7 @@ section{
     flex-direction: column;
     gap: 8px;
     width: 100%;
-    padding-inline: 5vw;
+    padding: 36px 0;
 }
 .section-title{
     display: flex;
@@ -245,28 +263,6 @@ section{
 }
 .section-title.mobile{
     display: none;
-}
-//-----------TEXT----------//
-h1{
-    font-size: 1.5em;
-    font-family: interBold;
-    color: var(--title);
-    letter-spacing: -.03em;
-}
-h2 {
-    font-size: 2.75em;
-    font-family: interSemiBold;
-    color: var(--title);
-    letter-spacing: -.02em;
-}
-p{
-    font-size: 1em;
-    font-family: interRegular;
-    color: var(--bodyText);
-}
-p.control-label{
-    font-family: interSemiBold;
-
 }
 //-----------APODS----------//
 .api-controls{
@@ -320,10 +316,11 @@ p.control-label{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     place-items: flex-start;
-    gap: 36px;
+    gap: 72px;
 
     .media-container{
         height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -409,6 +406,8 @@ p.control-label{
     gap: 16px;
 
     p.apod-title, p.past-apod-title{
+        font-size: 1.25em;
+        font-family: interSemiBold;
         color: var(--title);
     }
     p.explanation, p.past-explanation{
@@ -425,9 +424,8 @@ p.control-label{
         justify-content: space-between;
         align-items: center;
         padding: 8px 16px;
-        background: var(--info);
         height: 36px;
-        border-bottom: var(--dataTable);
+        border-bottom: var(--accordion);
     
         p.question{
             font-family: interMedium;
@@ -474,14 +472,7 @@ footer{
             }
         }
 
-        .global-links{
-            width: 100%;
-    
-            p.global-link-text{
-                font-size: 1em;
-                font-family: interRegular;
-            }
-        }
+        
     }
 }
 //-----------MEDIA QUERIES----------//
@@ -500,13 +491,11 @@ footer{
     //----TEXT----//
     h2{
         font-size: 2em;
+        margin-bottom: 0;
     }
     ///////////////
     header{
-        height: 50px;
-        background: var(--header);
         padding-inline: 16px;
-        backdrop-filter: blur(24px) saturate(100%);
     
         .page-link-container{
             display: none;
@@ -519,6 +508,23 @@ footer{
                     fill: var(--title);
                 }
             }
+        }
+    }
+    .main-content{
+        padding-inline: 12px;
+    }
+    .hero{
+        place-items: center;
+
+        p.site-title{
+            font-size: 1.5em !important;
+            text-align: center;
+        }
+        p.site-description{
+            font-size: 1em;
+            color: #fff;
+            letter-spacing: -.03em;
+            text-align: center;
         }
     }
     .api-content{
