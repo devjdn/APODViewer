@@ -215,26 +215,35 @@ header{
 }
 //-----------MAIN----------//
 .hero{
-    background: url(../bg/northern-lights.jpg);
+    background: linear-gradient(to bottom, #00000000, #050505), url(../bg/northern-lights.jpg);
     background-size: cover;
     background-position: 100% 40%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    place-items: center left;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
     padding: 32px;
     height: 400px;
 
-    p.site-title{
-        font-size: 2.5em;
-        font-family: interBold;
-        color: #fff;
-        letter-spacing: -.03em;
+    .title-description-wrapper{
+
+        p.site-title{
+            font-size: 2.5em;
+            font-family: interBold;
+            color: #fff;
+            letter-spacing: -.03em;
+        }
+        p.site-description{
+            font-size: 1.5em;
+            color: #fff;
+            letter-spacing: -.03em;
+        }
     }
-    p.site-description{
-        font-size: 1.5em;
-        color: #fff;
-        letter-spacing: -.03em;
+    .nasa-logo-container{
+        height: 200px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        // margin-inline: auto;
     }
 }
 main{
@@ -514,17 +523,23 @@ footer{
         padding-inline: 12px;
     }
     .hero{
-        place-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         p.site-title{
             font-size: 1.5em !important;
             text-align: center;
         }
         p.site-description{
-            font-size: 1em;
+            font-size: 1em !important;
             color: #fff;
             letter-spacing: -.03em;
             text-align: center;
+        }
+        .nasa-logo-container{
+            height: 100px;
         }
     }
     .api-content{
@@ -547,5 +562,12 @@ footer{
 
     #otherApods{
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 3000px) {
+    main{
+        width: 90vw;
+        margin-inline: auto;
     }
 }

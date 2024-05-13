@@ -221,26 +221,30 @@ header .header-content .header-name .logo #mdi-space-station {
 }
 
 .hero {
-  background: url(../bg/northern-lights.jpg);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #050505), url(../bg/northern-lights.jpg);
   background-size: cover;
   background-position: 100% 40%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  place-items: center left;
+  display: flex;
+  align-items: center;
   padding: 32px;
   height: 400px;
 }
-.hero p.site-title {
+.hero .title-description-wrapper p.site-title {
   font-size: 2.5em;
   font-family: interBold;
   color: #fff;
   letter-spacing: -0.03em;
 }
-.hero p.site-description {
+.hero .title-description-wrapper p.site-description {
   font-size: 1.5em;
   color: #fff;
   letter-spacing: -0.03em;
+}
+.hero .nasa-logo-container {
+  height: 200px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
 }
 
 main {
@@ -495,17 +499,23 @@ footer .footer-content .site-info p.si-text {
     padding-inline: 12px;
   }
   .hero {
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .hero p.site-title {
     font-size: 1.5em !important;
     text-align: center;
   }
   .hero p.site-description {
-    font-size: 1em;
+    font-size: 1em !important;
     color: #fff;
     letter-spacing: -0.03em;
     text-align: center;
+  }
+  .hero .nasa-logo-container {
+    height: 100px;
   }
   .api-content {
     display: flex;
@@ -520,5 +530,11 @@ footer .footer-content .site-info p.si-text {
   }
   #otherApods {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1400px) and (max-width: 3000px) {
+  main {
+    width: 90vw;
+    margin-inline: auto;
   }
 }/*# sourceMappingURL=main.css.map */
