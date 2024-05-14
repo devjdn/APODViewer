@@ -30,6 +30,15 @@ function getFetch(){
         }
         document.querySelector('.explanation').innerText = data.explanation;
         document.querySelector('.apod-title').innerText = data.title;
+        document.getElementById('tweetButton').addEventListener('click', function() {
+            // Compose tweet text
+            var apodTitle = data.title; // Replace with actual APOD title
+            var apodImageURL = data.hdurl;
+            var tweetText = encodeURIComponent(apodTitle + " by "  + data.copyright + "\n" + "\n" + " (Via apodviewer.vercel.app)");
+            
+            // Open Twitter tweet intent in new window
+            window.open("https://twitter.com/intent/tweet?text=" + tweetText + "\n" + "\n" + "&url=" + encodeURIComponent(apodImageURL), "_blank");
+        })
         
         // Hide loading spinner after receiving response
         spinner.style.display = 'none';

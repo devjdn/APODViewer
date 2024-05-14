@@ -76,12 +76,14 @@ body, html {
   --bodyBackground: #050505;
   --header: #050505;
   --fetch: /*linear-gradient(270deg, #121212, #1e1e1e)*/ #130bff;
+  --tweet: #fff;
   --info: #0f0f0f;
   --footer: #070707;
   --title: #cacaca;
   --lightDarkBtns: #f2f2f2;
   --bodyText: #e4e4e4;
   --fetchText: #e0e0e0;
+  --tweetText: #000000;
   --link: #f2f2f2;
   --linkHover: #ff6d0b;
   --accordion: #1e1e1e 1px solid;
@@ -89,9 +91,11 @@ body, html {
 
 .lightmode {
   --bodyBackground: #f1f1f1;
+  --tweet: #000000;
   --info: #ececec;
   --title: #1b1b1b;
   --bodyText: #202020;
+  --tweetText: #fff;
   --accordion: #c2c2c2 1px solid;
 }
 
@@ -411,6 +415,20 @@ section {
 }
 .image-info p.explanation, .image-info p.past-explanation {
   color: var(--bodyText);
+}
+.image-info #tweetButton {
+  border-radius: 100vw;
+  padding: 16px;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  background: var(--tweet);
+}
+.image-info #tweetButton i {
+  color: var(--tweetText);
+  font-size: 1.25em;
 }
 
 .featured-img {
