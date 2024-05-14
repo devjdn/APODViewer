@@ -112,7 +112,7 @@ h2 {
   font-family: interSemiBold;
   color: var(--title);
   letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -263,6 +263,8 @@ section {
   gap: 8px;
   width: 100%;
   padding: 36px 0;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
 .section-title {
@@ -395,9 +397,6 @@ section {
   gap: 8px;
   width: 100%;
 }
-#otherApods #otherApods img {
-  grid-area: auto;
-}
 
 .image-info {
   width: 100%;
@@ -502,7 +501,6 @@ footer .footer-content .site-info p.si-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
   .hero p.site-title {
     font-size: 1.5em !important;
@@ -530,11 +528,5 @@ footer .footer-content .site-info p.si-text {
   }
   #otherApods {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (min-width: 1400px) and (max-width: 3000px) {
-  main {
-    width: 90vw;
-    margin-inline: auto;
   }
 }/*# sourceMappingURL=main.css.map */
