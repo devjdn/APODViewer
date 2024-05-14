@@ -118,6 +118,9 @@ p.control-label{
     font-family: interSemiBold;
 
 }
+p.copyright{
+    font-family: interMedium;
+}
 //-----------HEADER----------//
 header{
     height: 75px;
@@ -247,13 +250,10 @@ header{
     }
 }
 main{
-    padding: 32px;
-
     .main-content{
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 100px;
     }
 }
 
@@ -263,7 +263,7 @@ section{
     flex-direction: column;
     gap: 8px;
     width: 100%;
-    padding: 36px 0;
+    padding: 72px 18px;
     max-width: 1400px;
     margin-inline: auto;
 }
@@ -421,6 +421,57 @@ section{
         color: var(--bodyText);
     }
 }
+.featured-img{
+    height: calc(100vh - 150px);
+    width: 100%;
+    display: grid;
+    place-content: center left;
+
+    .f-text{
+        padding-inline: 54px;
+        width: 780px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        p.f-title{
+            font-size: 4em;
+            font-family: interBold;
+            color: #fff;
+            letter-spacing: -.03em;
+        }
+        p.f-description{
+            font-size: 1.5em;
+            font-family: interMedium;
+            color: #fff;
+            letter-spacing: -.03em;
+        }
+        .f-link-wrapper{
+            display: flex;
+            gap: 4px;
+            align-items: center;
+
+            p.f-link{
+                font-size: 1.15em;
+                font-family: interMedium;
+                color: #fff;
+                letter-spacing: -.03em;
+            }
+            i{
+                font-size: 1.15em;
+                color: #ffffff;
+            }
+        }
+    }
+}
+.f-1{
+    background: linear-gradient(to right, #05050554, #00000000), url(../bg/f-1.jpg);
+    background-size: cover;
+}
+.f-2{
+    background: linear-gradient(to right, #05050554, #00000000), url(../bg/jwst.png);
+    background-size: cover;
+}
 .info-accordion{
     width: 100%;
     display: flex;
@@ -484,7 +535,11 @@ footer{
 }
 //-----------MEDIA QUERIES----------//
 
-
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+    .page-link-container{
+        flex-direction: column;
+    }
+}
 @media only screen and (min-width: 0px) and (max-width: 1000px) {
     body, html{
         scroll-behavior: smooth; /* Makes normal scrolling smooth */
@@ -493,7 +548,13 @@ footer{
         // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
     }
     main{
-        padding: 8px;
+        padding: 8px 0;
+
+        .main-content{
+            section{
+                padding-inline: 12px;
+            }
+        }
     }
     //----TEXT----//
     h2{
@@ -512,13 +573,25 @@ footer{
 
             .dropdown{
                 svg{
-                    fill: var(--title);
+                    fill: #ebebeb;
                 }
             }
         }
     }
-    .main-content{
-        padding-inline: 12px;
+    .dropdown-menu{
+        padding: 0 16px;
+        background: var(--header);
+        
+        .page-link-container{
+            justify-content: center;
+        }
+    }
+    .dropdown-menu[aria-hidden="false"]{
+        height: fit-content;
+        padding: 16px;
+    }
+    .dropdown-menu[aria-hidden="true"]{
+        height: 0;
     }
     .hero{
         display: flex;
@@ -539,6 +612,47 @@ footer{
             height: 100px;
         }
     }
+    .featured-img{
+        height: 500px;
+
+        .f-text{
+            padding-inline: 18px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+    
+            p.f-title{
+                font-size: 2.5em;
+                font-family: interBold;
+                color: #fff;
+                letter-spacing: -.03em;
+            }
+            p.f-description{
+                font-size: 1.1em;
+                font-family: interMedium;
+                color: #fff;
+                letter-spacing: -.03em;
+            }
+            .f-link-wrapper{
+                display: flex;
+                gap: 4px;
+                align-items: center;
+    
+                p.f-link{
+                    font-size: 1em;
+                    font-family: interMedium;
+                    color: #fff;
+                    letter-spacing: -.03em;
+                }
+                i{
+                    font-size: 1.15em;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    
     .api-content{
         display: flex;
         flex-direction: column-reverse;

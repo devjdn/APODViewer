@@ -12,13 +12,25 @@ function getFetch(){
             document.querySelector('.apod-img').src = data.hdurl;
             document.querySelector('iframe').style.display = 'none';
             document.querySelector('.apod-img').style.display = 'block';
+            if (data.copyright) {
+                document.querySelector('.copyright').innerHTML = "Image by " + data.copyright;
+            } else {
+                document.querySelector('.copyright').innerHTML = "No credited owner";
+            }
         } else if (data.media_type === 'video') {
             document.querySelector('iframe').src = data.url;
             document.querySelector('.apod-img').style.display = 'none';
             document.querySelector('iframe').style.display = 'block';
+
+            if (data.copyright) {
+                document.querySelector('.copyright').innerHTML = "Video by " + data.copyright;
+            } else {
+                document.querySelector('.copyright').innerHTML = "No credited owner";
+            }
         }
         document.querySelector('.explanation').innerText = data.explanation;
         document.querySelector('.apod-title').innerText = data.title;
+        
         // Hide loading spinner after receiving response
         spinner.style.display = 'none';
     })
