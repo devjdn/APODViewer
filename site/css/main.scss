@@ -58,11 +58,13 @@ input, button, textarea, select{
 
 body, html{
     scroll-behavior: smooth; /* Makes normal scrolling smooth */
-    background: var(--bodyBackground);
     min-height: 100vh;
     // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
 }
-
+body{
+    background: var(--bodyBackground);
+    background-size: 40px 40px;
+}
 //----------------COLOURS----------------//
 :root{
     --bodyBackground: #050505;
@@ -85,6 +87,8 @@ body, html{
 }
 .lightmode{
     --bodyBackground: #f1f1f1;
+    // linear-gradient(to right, rgb(235, 235, 235) 1px, transparent 1px),
+    // linear-gradient(to bottom, rgb(235, 235, 235) 1px, transparent 1px);
     --tweet: #000000;
     --info: #ececec;
 
@@ -560,10 +564,7 @@ footer{
 }
 @media only screen and (min-width: 0px) and (max-width: 1000px) {
     body, html{
-        scroll-behavior: smooth; /* Makes normal scrolling smooth */
-        background: var(--bodyBackground);
         min-height: 100svh;
-        // background: #ff0000; background-image: radial-gradient(at 20.0% 37.8%, #c70000 0px, transparent 50%),radial-gradient(at 67.2% 60.3%, #a30000 0px, transparent 50%),radial-gradient(at 13.5% 78.8%, #940000 0px, transparent 50%),radial-gradient(at 102.7% 27.9%, #e04c4c 0px, transparent 50%),radial-gradient(at 64.0% 39.4%, #610000 0px, transparent 50%),radial-gradient(at 77.1% 87.4%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 2.0% 21.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 32.1% 66.0%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 39.6% 65.1%, hsl(0, 100%, 33%) 0px, transparent 50%),radial-gradient(at 29.8% 35.3%, hsl(0, 100%, 33%) 0px, transparent 50%)
     }
     main{
         padding: 8px 0;
