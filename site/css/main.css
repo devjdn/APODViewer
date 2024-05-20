@@ -157,13 +157,6 @@ header .header-content .header-name {
   gap: 2px;
   align-items: center;
 }
-header .header-content .header-name .logo {
-  height: 42px;
-  aspect-ratio: 1;
-}
-header .header-content .header-name .logo #mdi-space-station {
-  fill: #130bff;
-}
 
 .page-link-container {
   display: flex;
