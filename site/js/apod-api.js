@@ -15,7 +15,7 @@ function getFetch(){
             if (data.copyright) {
                 document.querySelector('.copyright').innerHTML = "Image by " + data.copyright;
             } else {
-                document.querySelector('.copyright').innerHTML = "No credited owner";
+                document.querySelector('.copyright').innerHTML = "No credited owner in API";
             }
         } else if (data.media_type === 'video') {
             document.querySelector('iframe').src = data.url;
@@ -25,7 +25,7 @@ function getFetch(){
             if (data.copyright) {
                 document.querySelector('.copyright').innerHTML = "Video by " + data.copyright;
             } else {
-                document.querySelector('.copyright').innerHTML = "No credited owner";
+                document.querySelector('.copyright').innerHTML = "No credited owner in API";
             }
         }
         document.querySelector('.explanation').innerText = data.explanation;
