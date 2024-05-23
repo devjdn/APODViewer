@@ -115,4 +115,3 @@ function displayImages(apodData) {
 }
 
 fetchOtherApods();
-//---API LOADING ISSUE TEST
