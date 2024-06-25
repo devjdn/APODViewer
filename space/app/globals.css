@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --body: #fafafa;
+  --header: #ffffffcc;
+  --standout-text: #000;
+  --border: 1px solid #ebebeb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body: #000;
+    --header: #000000cc;
+    --standout-text: #fff;
+    --border: 1px solid #1e1e1e;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul[role=list], ol[role=list] {
+  list-style: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input, button, textarea, select {
+  border: none;
+  cursor: pointer;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  background: var(--body);
+}
+
+header {
+  padding: 14px;
+  background: var(--header);
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo p {
+  font-size: 1.35em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--standout-text);
+}
+
+.home .site-introduction-text {
+  padding: 56px 14px 56px;
+}
+.home .site-introduction-text h1 {
+  font-size: clamp(2em, 3.5vw, 3em);
+  color: var(--standout-text);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}/*# sourceMappingURL=globals.css.map */
