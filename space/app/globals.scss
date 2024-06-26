@@ -25,12 +25,16 @@ html:focus-within{
 a:not([class]){
   text-decoration-skip-ink: auto;
 }
-img, picture, svg, video, canvas{
+img, picture, svg, video, canvas, iframe{
   max-width: 100%;
   height: auto;
   vertical-align: middle;
   background-repeat: no-repeat; 
   background-size: cover;
+}
+iframe{
+  width: 100%;
+  aspect-ratio: 14 / 9;
 }
 input, button, textarea, select{
   border: none;
@@ -46,7 +50,7 @@ input, button, textarea, select{
 
 :root {
   --body: #fafafa;
-  --element: #ffffffcc;
+  --element: #ffffff;
 
   --standout-text: #000;
   --paragraph-text: #424242;
@@ -56,8 +60,8 @@ input, button, textarea, select{
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: #000;
-    --element: #000000cc;
+    --body: linear-gradient(to bottom, #00000062, #000000 180px), linear-gradient(to right, #00000000, #00000033, #00000000), linear-gradient(to right, #006cfa, #780074);
+    --element: #000000;
 
     --standout-text: #fff;
     --paragraph-text: #b2b2b2;
@@ -83,9 +87,9 @@ body{
 
 h1{
   font-size: clamp(2em, 3.5vw, 3em);
-  color: var(--standout-text);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -.03em;
+  color: var(--standout-text);
   text-align: center;
 }
 h2{
@@ -116,7 +120,6 @@ header{
   padding: 14px;
   background: var(--element);
   border-bottom: var(--border);
-  backdrop-filter: blur(24px) saturate(1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,7 +129,6 @@ footer{
   padding: 56px;
   background: var(--element);
   border-top: var(--border);
-  backdrop-filter: blur(24px) saturate(1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,44 +149,37 @@ footer{
 
 
 main{
-  max-width: 1268px;
-  margin-inline: auto;
+  padding: 0 14px;
 }
 .page-intro{
-  position: relative;
+  padding: 56px 0;
+  text-align: center;
 }
 .home{
   .site-introduction-text{
-    padding: 56px 14px 56px;
+    padding: 56px 14px;
   }
 }
-.daily{
-  padding: 56px 14px;
 
-  section.apod{
-    display: flex;
-    flex-direction: column;
+section.apod{
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-bottom: 56px;
+  max-width: 1400px;
+  margin-inline: auto;
+
+  .apod-api-content{
+    display: grid;
     gap: 56px;
+    grid-template-columns: .5fr 1fr;
 
-    .apod-api-content{
-      display: grid;
-      gap: 56px;
-      grid-template-columns: .5fr 1fr;
-  
-      .apod-info{
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-      }
+    .apod-info{
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
   }
-  .page-description{
-    background: var(--element);
-    border: var(--border);
-    border-radius: 24px;
-    padding: 14px;
-    margin-top: 56px;
-  }
 }
 
 
@@ -195,7 +190,7 @@ main{
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1008px) {
   .daily{
     section.apod{
       .apod-api-content{

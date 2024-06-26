@@ -30,12 +30,7 @@ const Apod = () => {
   }, []);
 
   if(loading){
-    return(
-      <div className="page-description">
-        <h3>Astronomy Picture of the Day (APOD)</h3>
-        <p>APOD is a NASA service, which allows users to see a daily pictures/videos, taken by the world's best astrophotographers. We use this API and apply it to a clean and simple interface for viewers to interact with.</p>
-      </div>
-    );
+    return <p>Loading</p>;
   }
 
   if (error) {
@@ -44,9 +39,6 @@ const Apod = () => {
 
   return (
     <section className='apod'>
-        <div className='page-intro'>
-            <h1>Astronomy Picture of the Day ({data.service_version})</h1>
-        </div>
         <div className='apod-api-content'>
             <div className='apod-info'>
                 <h2>{data.title}</h2>
