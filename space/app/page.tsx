@@ -5,12 +5,12 @@ export default function Home() {
     <div className="content">
       <div className="site-introduction-text">
           <h1>Your online view into the beginning of everything.</h1>
-          <h3>View NASA's library of history with SpaceScope</h3>
+          <h3>View NASA&#39;s library of history with SpaceScope</h3>
       </div>
       <section className="landing-nav">
         <article>
           <h3>Daily APOD</h3>
-          <p>View NASA's picture of the day from today.</p>
+          <p>View NASA&#39;s picture of the day from today.</p>
         </article>
         <article>
           <h3>APOD Time Machine</h3>
@@ -18,7 +18,7 @@ export default function Home() {
         </article>
         <article>
           <h3>APOD Library</h3>
-          <p>View an array of randomly fetched APODs from NASA's database.</p>
+          <p>View an array of randomly fetched APODs from NASA&#39;s database.</p>
         </article>
       </section>
       <Apod />
