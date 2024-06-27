@@ -56,8 +56,8 @@ input, button, textarea, select{
   // --paragraph-text: #424242;
 
   // --border: 1px solid #ebebeb;
-  --body: linear-gradient(to bottom, #00000062, #000000 180px), linear-gradient(to right, #00000000, #00000033, #00000000), linear-gradient(to right, #006cfa, #780074);
-    --element: #050505;
+    --body: linear-gradient(to bottom, #00000062, #000000 180px), linear-gradient(to right, #00000000, #00000033, #00000000), linear-gradient(to right, #006cfa, #780074);
+    --element: #050505d5;
 
     --standout-text: #fff;
     --paragraph-text: #b2b2b2;
@@ -67,13 +67,7 @@ input, button, textarea, select{
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body: linear-gradient(to bottom, #00000062, #000000 180px), linear-gradient(to right, #00000000, #00000033, #00000000), linear-gradient(to right, #006cfa, #780074);
-    --element: #050505;
 
-    --standout-text: #fff;
-    --paragraph-text: #b2b2b2;
-
-    --border: 1px solid #141414;
   }
 }
 
@@ -130,6 +124,14 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+.glow-line{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(to right, transparent, #4000ffaf, transparent);
+  height: 1px;
 }
 footer{
   margin-top: auto;
@@ -189,7 +191,6 @@ section.landing-nav{
 
   article{
     width: 100%;
-    aspect-ratio: 1;
     background: var(--element);
     border: var(--border);
     padding: 28px;

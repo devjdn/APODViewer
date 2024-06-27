@@ -4,7 +4,7 @@ export default function Header() {
             <div className="logo">
                 <a href="/"><p>SpaceScope</p></a>
             </div>
-            
+            <div className="glow-line"></div>
         </header>
     );
 }
