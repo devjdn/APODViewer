@@ -118,7 +118,6 @@ p{
 
 
 header{
-  padding: 14px;
   background: var(--element);
   border-bottom: var(--border);
   display: flex;
@@ -128,10 +127,10 @@ header{
 }
 .glow-line{
   position: absolute;
-  width: 100%;
   bottom: 0;
   background: linear-gradient(to right, transparent, #4000ffaf, transparent);
   height: 1px;
+  width: 100%;
 }
 footer{
   margin-top: auto;
@@ -143,6 +142,8 @@ footer{
   align-items: center;
 }
 .logo{
+  padding: 14px;
+  
   p{
     font-size: 1.35em;
     font-weight: 600;

@@ -95,7 +95,6 @@ p {
 }
 
 header {
-  padding: 14px;
   background: var(--element);
   border-bottom: var(--border);
   display: flex;
@@ -106,10 +105,10 @@ header {
 
 .glow-line {
   position: absolute;
-  width: 100%;
   bottom: 0;
   background: linear-gradient(to right, transparent, rgba(64, 0, 255, 0.6862745098), transparent);
   height: 1px;
+  width: 100%;
 }
 
 footer {
@@ -122,6 +121,9 @@ footer {
   align-items: center;
 }
 
+.logo {
+  padding: 14px;
+}
 .logo p {
   font-size: 1.35em;
   font-weight: 600;
