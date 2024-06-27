@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="content">
       <div className="site-introduction-text">
-          <h1>Look into the past.</h1>
+          <h1>Your online view into the beginning of everything.</h1>
           <h3>View NASA's library of history with SpaceScope</h3>
       </div>
       <section className="landing-nav">
@@ -18,18 +18,6 @@ export default function Home() {
         </article>
         <article>
           <h3>APOD Library</h3>
-          <p>View an array of randomly fetched APODs from NASA's database.</p>
-        </article>
-        <article>
-          <h3>Mars Rovers</h3>
-          <p>Take a look at the different rovers that have been trailblazing on Mars.</p>
-        </article>
-        <article>
-          <h3>Daily Mars Photo</h3>
-          <p>View an array of randomly fetched APODs from NASA's database.</p>
-        </article>
-        <article>
-          <h3>Rover Photo Search</h3>
           <p>View an array of randomly fetched APODs from NASA's database.</p>
         </article>
       </section>

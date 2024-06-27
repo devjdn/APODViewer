@@ -48,11 +48,11 @@ input, button, textarea, select {
 }
 
 :root {
-  --body: #fafafa;
-  --element: #ffffff;
-  --standout-text: #000;
-  --paragraph-text: #424242;
-  --border: 1px solid #ebebeb;
+  --body: linear-gradient(to bottom, #00000062, #000000 180px), linear-gradient(to right, #00000000, #00000033, #00000000), linear-gradient(to right, #006cfa, #780074);
+  --element: #050505;
+  --standout-text: #fff;
+  --paragraph-text: #b2b2b2;
+  --border: 1px solid #141414;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,24 +77,26 @@ body {
 
 h1 {
   font-size: clamp(2em, 3.5vw, 3em);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--standout-text);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
   font-size: clamp(1.35em, 3.5vw, 1.85em);
-  color: var(--standout-text);
   font-weight: 500;
   letter-spacing: -0.03em;
+  color: var(--standout-text);
 }
 
 h3 {
   font-size: 1.25em;
-  color: var(--standout-text);
   font-weight: 500;
   letter-spacing: -0.03em;
   margin-bottom: 14px;
+  color: var(--standout-text);
 }
 
 p {
@@ -128,12 +130,21 @@ footer {
 }
 
 main {
-  padding: 0 14px;
+  z-index: 250;
 }
 
 .content .site-introduction-text {
   padding: 56px 14px;
   text-align: center;
+  background: linear-gradient(to bottom, rgba(235, 235, 235, 0.3411764706), #fff);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.content .site-introduction-text h3 {
+  color: unset;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 section {
@@ -142,6 +153,7 @@ section {
   margin-bottom: 56px;
   max-width: 1400px;
   margin-inline: auto;
+  padding: 0 14px;
 }
 
 section.landing-nav {
@@ -151,15 +163,13 @@ section.landing-nav {
 }
 section.landing-nav article {
   width: 100%;
+  aspect-ratio: 1;
   background: var(--element);
   border: var(--border);
   padding: 28px;
 }
-section.landing-nav article:nth-of-type(2), section.landing-nav article:nth-of-type(5) {
+section.landing-nav article:nth-of-type(2) {
   border-inline: none;
-}
-section.landing-nav article:nth-of-type(4), section.landing-nav article:nth-of-type(5), section.landing-nav article:nth-of-type(6) {
-  border-top: none;
 }
 
 section.apod {

@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./ui/header";
 import { GeistSans } from "geist/font/sans";
 import Footer from "./ui/footer";
-
+import { BackgroundBeams } from "./ui/background-beams";
 
 export const metadata: Metadata = {
   title: "SpaceScope",
@@ -18,10 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={GeistSans.className}>
-        <Header/>
-        <main>
-          {children}
-        </main>
+        <BackgroundBeams/>
+          <main>
+            <Header/>
+            {children}
+          </main>
         <Footer />
       </body>
     </html>
