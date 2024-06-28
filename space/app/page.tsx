@@ -1,4 +1,5 @@
 import Apod from "./api/daily-api";
+import { CalendarDays } from "lucide-react";
 
 export default function Home() {
   return (
@@ -9,16 +10,22 @@ export default function Home() {
       </div>
       <section className="landing-nav">
         <article>
-          <h3>Daily APOD</h3>
-          <p>View NASA&#39;s picture of the day from today.</p>
+          <div className="feature-info">
+            <h3>Daily APOD</h3>
+            <p>View NASA&#39;s picture of the day from today.</p>
+          </div>
         </article>
         <article>
-          <h3>APOD Time Machine</h3>
-          <p>Select a date and look back at the APOD from that date.</p>
+          <div className="feature-info">
+            <h3>APOD Time Machine</h3>
+            <p>Select a date and look back at the APOD from that date.</p>
+          </div>
         </article>
         <article>
-          <h3>APOD Library</h3>
-          <p>View an array of randomly fetched APODs from NASA&#39;s database.</p>
+          <div className="feature-info">
+            <h3>APOD Library</h3>
+            <p>View an array of randomly fetched APODs from NASA&#39;s database.</p>
+          </div>
         </article>
       </section>
       <Apod />

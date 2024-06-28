@@ -188,16 +188,15 @@ section{
 section.landing-nav{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 28px;
 
   article{
     width: 100%;
-    background: var(--element);
+    backdrop-filter: blur(24px) saturate(1);
+    box-shadow: inset 0px 0px 7.5px #161616;
     border: var(--border);
     padding: 28px;
-  }
-  article:nth-of-type(2){
-    border-inline: none;
+    border-radius: 14px;
   }
 }
 
